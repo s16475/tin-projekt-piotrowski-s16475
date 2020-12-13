@@ -14,6 +14,8 @@ exports.showEmployeeEdit = (req, res, next) => {
     res.render('pages/employee/edit', { navLocation: 'emp' });
 }
 
+//teraz employee edit
+
 
 exports.showEmployeeDetails = (req, res, next) => {
     const empId = req.params.empId;
