@@ -14,70 +14,22 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>12-12-2010</td>
-                    <td>2000</td>
-                    <td>Pożar</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/claims/details/:clId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/claims/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>13-11-2021</td>
-                    <td>3000</td>
-                    <td>Kradzież z włamaniem</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/claims/details/:clId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/claims/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>3</td>
-                    <td>01-01-2010</td>
-                    <td>4000</td>
-                    <td>Powódź</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/claims/details/:clId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/claims/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>            
+                <% for (let claim of claims) { %>
+                    <tr>
+                        <td><%= claim.claimNo %></td>
+                        <td><%= claim.date.toISOString().split('T')[0] %></td>
+                        <td><%= claim.value %></td>
+                        <td><%= claim.cause %></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li><a href="/claims/details/<%=claim.claimNo%>" class="list-actions-button-details">Szczegóły</a></li>
+                                <li><a href="/claims/edit/<%=claim.claimNo%>" class="list-actions-button-edit">Edytuj</a></li>
+                                <li><a href="/claims/delete/<%=claim.claimNo%>" class="list-actions-button-delete">Usuń</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>          
         </table>
 
         <p><a href="/claims/assign" class="form-button-submit">Przydziel szkodę do pracownika</a></p>
@@ -89,3 +41,4 @@
 
 </body>
 </html>
+

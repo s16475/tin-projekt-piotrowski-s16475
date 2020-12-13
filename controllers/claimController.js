@@ -1,5 +1,13 @@
+const ClaimRepository = require('../repository/mysql2/ClaimRepository');
+
 exports.showClaimList = (req, res, next) => {
-    res.render('pages/claim/list', { navLocation: 'claim' });
+    ClaimRepository.getClaims()
+        .then(claims => {
+            res.render('pages/claim/list', {
+                claims: claims,
+                navLocation: 'claim'
+            });
+        });
 }
 
 exports.showClaimEdit = (req, res, next) => {
@@ -7,7 +15,14 @@ exports.showClaimEdit = (req, res, next) => {
 }
 
 exports.showClaimDetails = (req, res, next) => {
-    res.render('pages/claim/details', { navLocation: 'claim' });
+    const claimId = req.params.claimId;
+    ClaimRepository.getClaimById(claimId)
+        .then(claim => {
+            res.render('pages/claim/details', {
+                claim: claim,
+                navLocation: 'claim'
+            });
+        });
 }
 
 exports.showClaimAssign = (req, res, next) => {

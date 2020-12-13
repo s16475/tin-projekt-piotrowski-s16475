@@ -26,13 +26,6 @@ exports.showEmployeeDetails = (req, res, next) => {
         });
 }
 
-/*
-exports.showEmployeeDetails = (req, res, next) => {
-    res.render('pages/employee/details', { navLocation: 'emp' });
-}
-*/
-
-
 exports.showEmployeeAssign = (req, res, next) => {
     res.render('pages/employee/assign', { navLocation: 'emp' });
 }

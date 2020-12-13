@@ -4,8 +4,8 @@ var router = express.Router();
 const claimController = require('../controllers/claimController');
 
 router.get('/', claimController.showClaimList);
-router.get('/edit', claimController.showClaimEdit);
-router.get('/details/:clId', claimController.showClaimDetails);
+router.get('/edit/:claimId', claimController.showClaimEdit);
+router.get('/details/:claimId', claimController.showClaimDetails);
 router.get('/assign', claimController.showClaimAssign);
 router.get('/add', claimController.showClaimAdd);
 

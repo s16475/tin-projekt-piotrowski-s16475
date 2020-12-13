@@ -6,19 +6,19 @@
         <form class="form">
 
             <label for="claimNumber">Number:</label>
-            <input type="number" name="claimNumber" value="1" id="claimNumber" disabled="true">
+            <input type="number" name="claimNumber" value="<%= claim.claimNo %>" id="claimNumber" disabled="true">
             <span></span>
             
             <label for="claimDate">Data:</label>
-            <input type="date" name="claimDate" value="2010-12-12" id="claimDate" disabled="true">
+            <input type="date" name="claimDate" value="<%= claim.date.toISOString().split('T')[0] %>" id="claimDate" disabled="true">
             <span></span>
 
             <label for="claimValue">Wartość:</label>
-            <input type="number" name="claimValue" value="2000" id="claimValue" disabled="true">
+            <input type="number" name="claimValue" value="<%= claim.value %>" id="claimValue" disabled="true">
             <span></span>
 
             <label for="claimCause">Przyczyna:</label>
-            <input type="text" name="claimCause" value="Pożar" id="claimCause" disabled="true">
+            <input type="text" name="claimCause" value="<%= claim.cause %>" id="claimCause" disabled="true">
             <span></span>
             
         </form>
@@ -37,23 +37,15 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Jan</td>
-                    <td>Kowalski</td>
-                    <td>12-12-2009</td>
-                    <td>12-01-2010</td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>Anna</td>
-                    <td>Kowalska</td>
-                    <td>05-11-2019</td>
-                    <td>15-01-2020</td>
-                </tr>
+                <% for (let e of claim.employees) { %>
+                    <tr>
+                        <td><a href="/employees/details/<%= e.empNo %>"><%= e.empNo %></a></td>
+                        <td><%= e.firstName %></td>
+                        <td><%= e.lastName %></td>
+                        <td><%= e.workStartDate.toISOString().split('T')[0]  %></td>
+                        <td><%= e.workEndDate.toISOString().split('T')[0]  %></td>
+                    </tr>
+                <% } %>
             </tbody>
            
         </table>
@@ -61,7 +53,7 @@
         <p>
             <div class="form">
             <div class="form-buttons">
-                <a href="/claims/edit" class="form-button-assign">Edytuj</a>  
+                <a href="/claims/edit/<%= claim.claimNo %>" class="form-button-assign">Edytuj</a>  
                 <a href="/claims" class="form-button-cancel">Anuluj</a>   
         </div></div></p>
         
