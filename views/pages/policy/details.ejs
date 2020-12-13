@@ -6,27 +6,27 @@
         <form class="form">
 
             <label for="policyNumber">Numer:</label>
-            <input type="number" name="policyNumber" value="1" id="policyNumber" disabled="true">
+            <input type="number" name="policyNumber" value="<%= policy.policyNo %>" id="policyNumber" disabled="true">
             <span></span>
 
             <label for="policyStartDate">Początek ochrony:</label>
-            <input type="date" name="policyStartDate" value="2010-12-12" id="policyStartDate" disabled="true">
-            <span></span>
+            <input type="date" name="policyStartDate" value="<%= policy.startDate.toISOString().split('T')[0] %>" id="policyStartDate" disabled="true">
+            <span></span>                                   
 
             <label for="policyEndDate">Koniec ochrony:</label>
-            <input type="date" name="policyEndDate" value="2011-12-11" id="policyEndDate" disabled="true">
+            <input type="date" name="policyEndDate" value="<%= policy.endDate.toISOString().split('T')[0] %>" id="policyEndDate" disabled="true">
             <span></span>
 
             <label for="sumInsured">Suma ubezpieczenia:</label>
-            <input type="number" name="sumInsured" value="50000" id="sumInsured" disabled="true">
+            <input type="number" name="sumInsured" value="<%= policy.sumInsured %>" id="sumInsured" disabled="true">
             <span></span>
 
             <label for="insurerNumber">Ubezpieczający:</label>
-            <input type="number" name="insurerNumber" value="1" id="insurerNumber" disabled="true">
+            <input type="number" name="insurerNumber" value="<%= policy.insurerId %>" id="insurerNumber" disabled="true">
             <span></span>
 
         </form>
-
+    
         <h2>Szkody na wybranej polisie</h2>
 
         <table class="table-list">
@@ -40,31 +40,24 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>12-12-2010</td>
-                    <td>2000</td>
-                    <td>Pożar</td>
-                </tr>
+                <% for (let c of policy.claims) { %>
+                    <tr>
+                        <td><a href="/claims/details/<%= c.claimNo %>"><%= c.claimNo %></a></td>
+                        <td><%= c.date.toISOString().split('T')[0] %></td>
+                        <td><%= c.value %></td>
+                        <td><%= c.cause %></td>
+                    </tr>
+                <% } %>
             </tbody>
 
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>13-11-2021</td>
-                    <td>3000</td>
-                    <td>Kradzież z włamaniem</td>
-                </tr>
-            </tbody>
-        
         </table>
-        
+    
         <p>
             <div class="form">
             <div class="form-buttons">
                 <a href="/policies" class="form-button-cancel">Anuluj</a>   
         </div></div></p>
-        
+    
     </main>
 
     <%- include('../../fragments/footer.ejs') %>

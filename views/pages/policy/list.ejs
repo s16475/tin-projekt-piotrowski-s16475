@@ -15,43 +15,20 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>12-12-2010</td>
-                    <td>11-12-2011</td>
-                    <td>50000</td>
-                    <td>1</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/policies/details/:polId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>12-12-2021</td>
-                    <td>11-12-2022</td>
-                    <td>60000</td>
-                    <td>2</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/policies/details/:polId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% for (let policy of policies) { %>
+                    <tr>
+                        <td><%= policy.policyNo %></td>
+                        <td><%= policy.startDate.toISOString().split('T')[0] %></td>
+                        <td><%= policy.endDate.toISOString().split('T')[0] %></td>
+                        <td><%= policy.sumInsured %></td>
+                        <td><%= policy.insurerId %></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li><a href="/policies/details/<%=policy.policyNo%>" class="list-actions-button-details">Szczegóły</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } %>
             </tbody>
           
         </table>

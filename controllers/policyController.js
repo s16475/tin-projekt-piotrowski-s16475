@@ -1,7 +1,22 @@
+const PolicyRepository = require('../repository/mysql2/PolicyRepository');
+
 exports.showPolicyList = (req, res, next) => {
-    res.render('pages/policy/list', { navLocation: 'policy' });
+    PolicyRepository.getPolicies()
+        .then(policies => {
+            res.render('pages/policy/list', {
+                policies: policies,
+                navLocation: 'policy'
+            });
+        });
 }
 
 exports.showPolicyDetails = (req, res, next) => {
-    res.render('pages/policy/details', { navLocation: 'policy' });
+    const policyId = req.params.policyId;
+    PolicyRepository.getPolicyById(policyId)
+        .then(policy => {
+            res.render('pages/policy/details', {
+                policy: policy,
+                navLocation: 'policy'
+            });
+        });
 }
