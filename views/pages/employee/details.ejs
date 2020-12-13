@@ -2,6 +2,45 @@
 
     <main>
         <h2>Szczegóły pracownika</h2>
+
+        <form class="form">
+            
+            <label for="empNumber">Numer:</label>
+            <input type="number" name="empNumber" value="<%= emp.empNo %>" id="empNumber" disabled="true">
+            <span></span>
+            
+            <label for="firstName">Imię:</label>
+            <input type="text" name="firstName" value="<%= emp.firstName %>" id="firstName" disabled="true">
+            <span></span>
+            
+            <label for="lastName">Nazwisko:</label>
+            <input type="text" name="lastName" value="<%= emp.lastName %>" id="lastName" disabled="true">
+            <span></span>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="<%= emp.email %>" id="email" disabled="true">
+            <span></span>
+
+        </form>
+
+
+
+
+        
+        
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %> 
+
+</body>
+</html>
+
+
+<!--
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Szczegóły pracownika</h2>
        
         <form class="form">
             
@@ -68,4 +107,4 @@
 
 </body>
 </html>
-
+-->
