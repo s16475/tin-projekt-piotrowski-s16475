@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXE TUiR S.A.</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="application/javascript" src="/js/validationCommon.js"></script>
+    <script type="application/javascript" src="/js/validationClaimForm.js"></script>
+    <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+</head>
+<body>
+<header>
+    <h1>AXE TUiR S.A.</h1>
+    <img src="/images/logo.png" width="100" height="100" alt="AXE TUiR S.A. Logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+        <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
+        <li><a href="/claims" class="<%= navLocation == 'claim' ? 'active' : ''%>">Szkody</a></li>
+        <li><a href="/policies" class="<%= navLocation == 'policy' ? 'active' : ''%>">Polisy</a></li>
+    </ul>
+</nav>

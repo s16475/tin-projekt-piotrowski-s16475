@@ -1,0 +1,62 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Przydziel szkodę do pracownika</h2>
+
+        <div class="select">
+            <select>
+              <option>--wybierz szkodę--</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <div class="select-arrow"></div>
+        </div>
+
+        <form class="form">       
+            <label for="claimNumber">Numer szkody:</label>
+            <input type="number" name="claimNumber" id="claimNumber" disabled="true">
+            <span></span>
+        </form> 
+
+        <div class="select">
+            <select>
+                <option>--wybierz pracownika--</option>
+                <option>Jan Kowalski</option>
+                <option>Marian Pazdzioch</option>
+                <option>Anna Kowalska</option>
+            </select>
+        <div class="select-arrow"></div>
+        </div>
+             
+        <form class="form">
+
+            <label for="empNumber">Numer pracownika:</label>
+            <input type="number" name="empNumber" id="empNumber" disabled="true">
+            <span></span>
+            
+            <label for="empName">Imię:</label>
+            <input type="text" name="empName" id="empName" disabled="true">
+            <span></span>
+
+            <label for="empSurname">Nazwisko:</label>
+            <input type="text" name="empSurname" id="empSurname" disabled="true">
+            <span></span>
+            
+            <label for="empEmail">Email:</label>
+            <input type="email" name="empEmail" id="empEmail" disabled="true">
+            <span></span>
+
+            <div class="form-buttons">
+                <input type="submit" value="Przydziel" class="form-button-submit" a href="/claims" />
+                <a href="/claims" class="form-button-cancel">Anuluj</a>    
+            </div> 
+        
+        </form>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Szczegóły pracownika</h2>
+       
+        <form class="form">
+            
+            <label for="empNumber">Numer:</label>
+            <input type="number" name="empNumber" value="1" id="empNumber" disabled="true">
+            <span></span>
+            
+            <label for="firstName">Imię:</label>
+            <input type="text" name="firstName" value="Jan" id="firstName" disabled="true">
+            <span></span>
+            
+            <label for="lastName">Nazwisko:</label>
+            <input type="text" name="lastName" value="Kowalski" id="lastName" disabled="true">
+            <span></span>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="jan.kowalski@axe.com" id="email" disabled="true">
+            <span></span>
+
+        </form>
+
+        <h2>Szkody przydzielone do pracownika</h2>
+
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Numer szkody</th>
+                    <th>Wartość</th>
+                    <th>Przydzielona od</th>
+                    <th>Przydzielona do</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2000</td>
+                    <td>12-12-2009</td>
+                    <td>12-01-2010</td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>3000</td>
+                    <td>05-11-2019</td>
+                    <td>15-01-2020</td>
+                </tr>
+            </tbody>
+           
+        </table>
+
+        <p>
+        <div class="form">
+        <div class="form-buttons">
+            <a href="/employees/edit" class="form-button-assign">Edytuj</a>  
+            <a href="/employees" class="form-button-cancel">Anuluj</a>  
+        </div></div></p>
+        
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %> 
+
+</body>
+</html>
+

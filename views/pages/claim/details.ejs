@@ -1,0 +1,74 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Szczegóły szkody</h2>
+       
+        <form class="form">
+
+            <label for="claimNumber">Number:</label>
+            <input type="number" name="claimNumber" value="1" id="claimNumber" disabled="true">
+            <span></span>
+            
+            <label for="claimDate">Data:</label>
+            <input type="date" name="claimDate" value="2010-12-12" id="claimDate" disabled="true">
+            <span></span>
+
+            <label for="claimValue">Wartość:</label>
+            <input type="number" name="claimValue" value="2000" id="claimValue" disabled="true">
+            <span></span>
+
+            <label for="claimCause">Przyczyna:</label>
+            <input type="text" name="claimCause" value="Pożar" id="claimCause" disabled="true">
+            <span></span>
+            
+        </form>
+
+        <h2>Pracownicy przydzieleni do szkody</h2>
+
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Numer pracownika</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Przydzielony od</th>
+                    <th>Przydzielony do</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Jan</td>
+                    <td>Kowalski</td>
+                    <td>12-12-2009</td>
+                    <td>12-01-2010</td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Anna</td>
+                    <td>Kowalska</td>
+                    <td>05-11-2019</td>
+                    <td>15-01-2020</td>
+                </tr>
+            </tbody>
+           
+        </table>
+
+        <p>
+            <div class="form">
+            <div class="form-buttons">
+                <a href="/claims/edit" class="form-button-assign">Edytuj</a>  
+                <a href="/claims" class="form-button-cancel">Anuluj</a>   
+        </div></div></p>
+        
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+</body>
+</html>
+

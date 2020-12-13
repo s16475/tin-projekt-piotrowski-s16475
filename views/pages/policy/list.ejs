@@ -1,0 +1,65 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Lista polis</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Numer</th>
+                    <th>Początek ochrony</th>
+                    <th>Koniec ochrony</th>
+                    <th>Suma ubezpieczenia</th>
+                    <th>Ubezpieczający</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>12-12-2010</td>
+                    <td>11-12-2011</td>
+                    <td>50000</td>
+                    <td>1</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/policies/details/:polId" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>12-12-2021</td>
+                    <td>11-12-2022</td>
+                    <td>60000</td>
+                    <td>2</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/policies/details/:polId" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+          
+        </table>
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+</body>
+</html>
+

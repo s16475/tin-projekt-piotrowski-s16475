@@ -1,0 +1,91 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Lista pracowników</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Numer</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>E-mail</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Jan</td>
+                    <td>Kowalski</td>
+                    <td>jan.kowalski@axe.com</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/employees/details/:empId" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/employees/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Marian</td>
+                    <td>Pazdzioch</td>
+                    <td>marian.pazdzioch@axe.com</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/employees/details/:empId" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/employees/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>Anna</td>
+                    <td>Kowalska</td>
+                    <td>ania.kowalska@axe.com</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/employees/details/:empId" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/employees/edit" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>            
+        </table>
+
+        <p><a href="/employees/assign" class="form-button-submit">Przydziel pracownika do szkody</a></p>
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+    
+</body>
+</html>
+
