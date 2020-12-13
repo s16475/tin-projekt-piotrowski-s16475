@@ -14,70 +14,24 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Jan</td>
-                    <td>Kowalski</td>
-                    <td>jan.kowalski@axe.com</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/employees/details/:empId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/employees/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>Marian</td>
-                    <td>Pazdzioch</td>
-                    <td>marian.pazdzioch@axe.com</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/employees/details/:empId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/employees/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>3</td>
-                    <td>Anna</td>
-                    <td>Kowalska</td>
-                    <td>ania.kowalska@axe.com</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="/employees/details/:empId" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="/employees/edit" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>            
+                <% for (let emp of emps) { %>
+                    <tr>
+                        <td><%= emp.empNo %></td>
+                        <td><%= emp.firstName %></td>
+                        <td><%= emp.lastName %></td>
+                        <td><%= emp.email %></td>
+                        <td>
+                            <ul class="list-actions">
+                                <li><a href="/employees/details/<%=emp.empNo%>" class="list-actions-button-details">Szczegóły</a></li>
+                                <li><a href="/employees/edit/<%=emp.empNo%>" class="list-actions-button-edit">Edytuj</a></li>
+                                <li><a href="/employees/delete/<%=emp.empNo%>" class="list-actions-button-delete">Usuń</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+                
+                 
         </table>
 
         <p><a href="/employees/assign" class="form-button-submit">Przydziel pracownika do szkody</a></p>

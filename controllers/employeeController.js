@@ -1,5 +1,13 @@
+const EmployeeRepository = require('../repository/mysql2/EmployeeRepository');
+
 exports.showEmployeeList = (req, res, next) => {
-    res.render('pages/employee/list', { navLocation: 'emp' });
+    EmployeeRepository.getEmployees()
+        .then(emps => {
+            res.render('pages/employee/list', {
+                emps: emps,
+                navLocation: 'emp'
+            });
+        });
 }
 
 exports.showEmployeeEdit = (req, res, next) => {
