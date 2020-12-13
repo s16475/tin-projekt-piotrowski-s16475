@@ -23,11 +23,29 @@
 
         </form>
 
+        <h2>Szkody przydzielone do pracownika</h2>
 
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>Numer szkody</th>
+                <th>Wartość</th>
+                <th>Przydzielona od</th>
+                <th>Przydzielona do</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let c of emp.claims) { %>
+                <tr>
+                    <td><a href="/claims/details/<%= c.claimNo %>"><%= c.claimNo %></a></td>
+                    <td><%= c.value %></td>
+                    <td><%= c.workStartDate.toISOString().split('T')[0] %></td>
+                    <td><%= c.workEndDate.toISOString().split('T')[0] %></td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
 
-
-        
-        
     </main>
 
     <%- include('../../fragments/footer.ejs') %> 
