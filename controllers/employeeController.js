@@ -31,3 +31,11 @@ exports.showEmployeeDetails = (req, res, next) => {
 exports.showEmployeeAssign = (req, res, next) => {
     res.render('pages/employee/assign', { navLocation: 'emp' });
 }
+
+exports.deleteEmployee = (req, res, next) => {
+    const empId = req.params.empId;
+    EmployeeRepository.deleteEmployee(empId)
+    .then( () => {
+        res.redirect('/employees');
+    });
+};

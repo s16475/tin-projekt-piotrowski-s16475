@@ -8,5 +8,7 @@ router.get('/edit/:empId', employeeControler.showEmployeeEdit);
 router.get('/details/:empId', employeeControler.showEmployeeDetails);
 router.get('/assign', employeeControler.showEmployeeAssign);
 
+router.get('/delete/:empId', employeeControler.deleteEmployee);
+
 module.exports = router;
 
