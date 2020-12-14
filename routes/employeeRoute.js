@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-const employeeControler = require('../controllers/employeeController');
+const employeeController = require('../controllers/employeeController');
 
-router.get('/', employeeControler.showEmployeeList);
-router.get('/edit/:empId', employeeControler.showEmployeeEdit);
-router.get('/details/:empId', employeeControler.showEmployeeDetails);
-router.get('/assign', employeeControler.showEmployeeAssign);
+router.get('/', employeeController.showEmployeeList);
+router.get('/edit/:empId', employeeController.showEmployeeEdit);
+router.get('/details/:empId', employeeController.showEmployeeDetails);
+router.get('/assign', employeeController.showEmployeeAssign);
 
-router.get('/delete/:empId', employeeControler.deleteEmployee);
+router.get('/delete/:empId', employeeController.deleteEmployee);
 
 module.exports = router;
 

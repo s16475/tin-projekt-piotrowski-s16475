@@ -9,4 +9,6 @@ router.get('/details/:claimId', claimController.showClaimDetails);
 router.get('/assign', claimController.showClaimAssign);
 router.get('/add', claimController.showClaimAdd);
 
+router.get('/delete/:claimId', claimController.deleteClaim);
+
 module.exports = router;
