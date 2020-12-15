@@ -29,7 +29,7 @@ exports.showEmployeeEdit = (req, res, next) => {
 exports.showEmployeeDetails = (req, res, next) => {
     const empId = req.params.empId;
     EmployeeRepository.getEmployeeById(empId)
-        .then(emp => {
+        .then(emp => {            
             res.render('pages/employee/details', {
                 emp: emp,
                 navLocation: 'emp'
@@ -56,6 +56,4 @@ exports.updateEmployee = (req, res, next) => {
     .then( result => {
         res.redirect('/employees');
     });
-
-
 };

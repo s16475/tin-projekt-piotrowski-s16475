@@ -83,10 +83,9 @@ exports.createClaim = (newClaimData) => {
 exports.updateClaim = (claimId, claimData) => {
 
     const date = claimData.date;
-    const value = newClaimData.value;
-    const cause = newClaimData.cause;
-    
-    const sql = `UPDATE Claim set date = ?, value = ?, cause = ? where claimId = ?`;
+    const value = claimData.value;
+    const cause = claimData.cause;    
+    const sql = `UPDATE Claim set date = ?, value = ?, cause = ? where claimNo = ?`;
     return db.promise().execute(sql, [date, value, cause, claimId]);
 
 };

@@ -8,7 +8,7 @@ router.get('/edit/:claimId', claimController.showClaimEdit);
 router.get('/details/:claimId', claimController.showClaimDetails);
 router.get('/assign', claimController.showClaimAssign);
 router.get('/add', claimController.showClaimAdd);
-
 router.get('/delete/:claimId', claimController.deleteClaim);
+router.post('/doedit', claimController.updateClaim);
 
 module.exports = router;

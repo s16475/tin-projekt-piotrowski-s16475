@@ -11,13 +11,20 @@ exports.showClaimList = (req, res, next) => {
 }
 
 exports.showClaimEdit = (req, res, next) => {
-    res.render('pages/claim/edit', { navLocation: 'claim' });
+    const claimId = req.params.claimId;
+    ClaimRepository.getClaimById(claimId)
+        .then(claim => {
+            res.render('pages/claim/edit', {
+                claim: claim,
+                navLocation: 'claim'
+            });
+        });
 }
 
 exports.showClaimDetails = (req, res, next) => {
     const claimId = req.params.claimId;
     ClaimRepository.getClaimById(claimId)
-        .then(claim => {
+        .then(claim => {                    
             res.render('pages/claim/details', {
                 claim: claim,
                 navLocation: 'claim'
@@ -40,3 +47,14 @@ exports.deleteClaim = (req, res, next) => {
         res.redirect('/claims');
     });
 };
+
+exports.updateClaim = (req, res, next) => {
+    const claimId = req.body.claimNo;
+    const claimData = { ...req.body };
+    ClaimRepository.updateClaim(claimId, claimData)
+    .then( result => {
+        res.redirect('/claims');
+    });
+};
+
+

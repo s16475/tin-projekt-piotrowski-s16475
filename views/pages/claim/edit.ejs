@@ -1,24 +1,24 @@
+
 <%- include('../../fragments/header.ejs') %>
 
     <main>
         <h2>Edytuj szkodę</h2>
 
-        <form class="form" novalidate onsubmit="return validateForm();">
+        <script type="application/javascript" src="/js/validationClaimForm.js"></script>
+        <form class="form" method="post" action="/claims/doedit" novalidate onsubmit="return validateForm();">
             
-            <label for="claimNumber">Numer:</label>
-            <input type="number" name="claimNumber" value="1" id="claimNumber" disabled="true"/>
-            <span></span>
-
+            <input type="hidden" name="claimNo" value="<%= claim.claimNo %>">
+            
             <label for="claimDate">Data:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="date" name="claimDate" id="claimDate" placeholder="yyyy-mm-dd"/>
+            <input type="date" name="date" id="claimDate" value="<%= claim.date.toISOString().split('T')[0] %>" />
             <span id="errorClaimDate" class="errors-text"></span>
 
             <label for="claimValue">Wartość:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="claimValue" id="claimValue" placeholder="liczba > 0"/>
+            <input type="number" name="value" id="claimValue" value="<%= claim.value %>" />
             <span id="errorClaimValue" class="errors-text"></span>
 
             <label for="claimCause">Przyczyna:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="claimCause" id="claimCause" placeholder="2-60 znaków"/>
+            <input type="text" name="cause" id="claimCause" value="<%= claim.cause %>" />
             <span id="errorClaimCause" class="errors-text"></span>
             
             <div class="form-buttons">
