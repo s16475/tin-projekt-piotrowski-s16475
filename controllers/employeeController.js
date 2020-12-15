@@ -10,12 +10,21 @@ exports.showEmployeeList = (req, res, next) => {
         });
 }
 
+/*
 exports.showEmployeeEdit = (req, res, next) => {
     res.render('pages/employee/edit', { navLocation: 'emp' });
+}*/
+
+exports.showEmployeeEdit = (req, res, next) => {
+    const empId = req.params.empId;
+    EmployeeRepository.getEmployeeById(empId)
+        .then(emp => {
+            res.render('pages/employee/edit', {
+                emp: emp,
+                navLocation: 'emp'
+            });
+        });
 }
-
-//teraz employee edit
-
 
 exports.showEmployeeDetails = (req, res, next) => {
     const empId = req.params.empId;
@@ -38,4 +47,15 @@ exports.deleteEmployee = (req, res, next) => {
     .then( () => {
         res.redirect('/employees');
     });
+};
+
+exports.updateEmployee = (req, res, next) => {
+    const empId = req.body.empNo;
+    const empData = { ...req.body };
+    EmployeeRepository.updateEmployee(empId, empData)
+    .then( result => {
+        res.redirect('/employees');
+    });
+
+
 };
