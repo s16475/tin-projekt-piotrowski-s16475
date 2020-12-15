@@ -72,7 +72,9 @@ exports.createClaim = (newClaimData) => {
 
     const value = newClaimData.value;
     const cause = newClaimData.cause;
-    const policy = newClaimData.policy;
+    //const policy = newClaimData.policy; //teraz trzeba oprogramowac polise - w widoku rowniez, ale takze insert do tabeli posredniczacej z pracownikiem 
+    //do ktorego pracownika przydzielasz nowa szkode i do ktorej polisy
+    const policy = 1;
 
     const sql = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
     return db.promise().execute(sql, [date, value, cause, policy]);

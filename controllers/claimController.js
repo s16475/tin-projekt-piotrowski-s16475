@@ -40,6 +40,14 @@ exports.showClaimAdd = (req, res, next) => {
     res.render('pages/claim/add', { navLocation: 'claim' });
 }
 
+exports.createClaim = (req, res, next) => {
+    const claimData = { ...req.body }; 
+    ClaimRepository.createClaim(claimData)
+        .then( result => {
+            res.redirect('/claims');
+        });
+}
+
 exports.deleteClaim = (req, res, next) => {
     const claimId = req.params.claimId;
     ClaimRepository.deleteClaim(claimId)

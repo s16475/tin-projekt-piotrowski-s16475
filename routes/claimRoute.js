@@ -10,5 +10,6 @@ router.get('/assign', claimController.showClaimAssign);
 router.get('/add', claimController.showClaimAdd);
 router.get('/delete/:claimId', claimController.deleteClaim);
 router.post('/doedit', claimController.updateClaim);
+router.post('/doadd', claimController.createClaim); 
 
 module.exports = router;

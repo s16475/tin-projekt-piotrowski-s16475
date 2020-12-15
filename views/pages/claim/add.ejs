@@ -3,27 +3,20 @@
     <main>
         <h2>Dodaj szkodę</h2>
 
-        <form class="form" novalidate onsubmit="return validateForm();">
-
-            <label for="claimNumber">Numer:</label>
-            <input type="number" name="claimNumber" id="claimNumber" disabled="true">
-            <span></span>
-            
-            <label for="claimDate">Data:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="date" name="claimDate" id="claimDate" placeholder="yyyy-mm-dd"/>
-            <span id="errorClaimDate" class="errors-text"></span>
+        <script type="application/javascript" src="/js/validationClaimForm.js"></script>
+        <form class="form" method="post" action="/claims/doadd" novalidate onsubmit="return validateForm();">
 
             <label for="claimValue">Wartość:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="claimValue" id="claimValue" placeholder="liczba > 0"/>
+            <input type="number" name="value" id="claimValue" placeholder="liczba > 0"/>
             <span id="errorClaimValue" class="errors-text"></span>
 
             <label for="claimCause">Przyczyna:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="claimCause" id="claimCause" placeholder="2-60 znaków"/>
+            <input type="text" name="cause" id="claimCause" placeholder="2-60 znaków"/>
             <span id="errorClaimCause" class="errors-text"></span>
 
             <div class="form-buttons">
                 <p id="errorsSummary" class="errors-text"></p>
-                <input type="submit" class="form-button-submit" value="Dodaj" a href="/claims" />
+                <input type="submit" class="form-button-submit" value="Dodaj" />
                 <a href="/claims" class="form-button-cancel">Anuluj</a>
             </div>
         </form>
