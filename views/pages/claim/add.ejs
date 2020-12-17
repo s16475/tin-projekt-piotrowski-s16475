@@ -3,9 +3,13 @@
     <main>
         <h2>Dodaj szkodę</h2>
 
-        <script type="application/javascript" src="/js/validationClaimForm.js"></script>
-        <form class="form" method="post" action="/claims/doadd" novalidate onsubmit="return validateForm();">
+        <script type="application/javascript" src="/js/validationClaimAdd.js"></script>
+        <form class="form" method="post" action="/claims/doadd" novalidate onsubmit="return validateForm2();">
 
+            <label for="claimDate">Data:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="date" id="claimDate" placeholder="data w formacie YYYY-MM-DD"/>
+            <span id="errorClaimDate" class="errors-text"></span>
+            
             <label for="claimValue">Wartość:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="number" name="value" id="claimValue" placeholder="liczba > 0"/>
             <span id="errorClaimValue" class="errors-text"></span>
@@ -13,6 +17,10 @@
             <label for="claimCause">Przyczyna:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="text" name="cause" id="claimCause" placeholder="2-60 znaków"/>
             <span id="errorClaimCause" class="errors-text"></span>
+
+            <label for="claimPolicy">Polisa:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="policy" id="claimPolicy" placeholder="numer polisy"/>
+            <span id="errorClaimPolicy" class="errors-text"></span> 
 
             <div class="form-buttons">
                 <p id="errorsSummary" class="errors-text"></p>

@@ -59,26 +59,14 @@ exports.getClaimById = (claimId) => {
 
 exports.createClaim = (newClaimData) => {
     
-    let nowDate = new Date(),
-    month = '' + (nowDate.getMonth() + 1),
-    day = '' + nowDate.getDate(),
-    year = nowDate.getFullYear();
-
-    if (month.length < 2)
-    month = '0' + month;
-    if (day.length < 2)
-    day = '0' + day;
-    const date = [year, month, day].join('-');
-
+    
+    const date = newClaimData.date;
     const value = newClaimData.value;
     const cause = newClaimData.cause;
-    //const policy = newClaimData.policy; //teraz trzeba oprogramowac polise - w widoku rowniez, ale takze insert do tabeli posredniczacej z pracownikiem 
-    //do ktorego pracownika przydzielasz nowa szkode i do ktorej polisy
-    const policy = 1;
-
+    const policy = newClaimData.policy; 
     const sql = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
     return db.promise().execute(sql, [date, value, cause, policy]);
-    //dodac insert rowniez w tabeli posredniczacej
+    //dodac insert rowniez w tabeli posredniczacej emp
 
 };
 
