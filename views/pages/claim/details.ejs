@@ -42,11 +42,12 @@
                         <td><a href="/employees/details/<%= e.empNo %>"><%= e.empNo %></a></td>
                         <td><%= e.firstName %></td>
                         <td><%= e.lastName %></td>
-                        <td><%= e.workStartDate.toISOString().split('T')[0]  %></td>
-                        <td><%= e.workEndDate.toISOString().split('T')[0]  %></td>
+                        <td><%= e.workStartDate.toISOString().split('T')[0]  %></td>                       
+                        <td><%= e.workEndDate ? e.workEndDate.toISOString().split('T')[0] : '' %></td>
                     </tr>
                 <% } %>
             </tbody>
+          
            
         </table>
 
