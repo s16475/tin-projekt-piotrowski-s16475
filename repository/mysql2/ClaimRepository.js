@@ -57,21 +57,37 @@ exports.getClaimById = (claimId) => {
     });
 };
 
+
+
 exports.createClaim = (newClaimData) => {
-    
     
     const date = newClaimData.date;
     const value = newClaimData.value;
     const cause = newClaimData.cause;
     const policy = newClaimData.policy; 
-    const sql = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
-    return db.promise().execute(sql, [date, value, cause, policy]);
-    //dodac insert rowniez w tabeli posredniczacej emp
+    const emp = newClaimData.emp;
+    
+    const sql1 = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
+    const sql2 = 'INSERT into Claim_Employee (workStartDate, workEndDate, claimNo, empNo) VALUES (?, ?, ?, ?)'
+    const sql3 = 'SELECT COUNT(*) AS c FROM Claim' 
 
+    var count;
+
+    return db.promise().execute(sql1, [date, value, cause, policy])
+        .then(() => {
+            return db.promise().execute(sql3)
+                .then(result => {
+                    let data = result[0];
+                    count = data[0].c;
+                }).then(() => {
+                    return db.promise().execute(sql2, [date, date, count, emp])
+        })
+    })
 };
 
-exports.updateClaim = (claimId, claimData) => {
 
+
+exports.updateClaim = (claimId, claimData) => {
     const date = claimData.date;
     const value = claimData.value;
     const cause = claimData.cause;    

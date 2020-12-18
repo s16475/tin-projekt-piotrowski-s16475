@@ -4,14 +4,17 @@ function validateForm2() {
     const claimValueInput = document.getElementById('claimValue');
     const claimCauseInput = document.getElementById('claimCause');
     const claimPolicyInput = document.getElementById('claimPolicy');
+    const claimEmployeeInput = document.getElementById('claimEmployee');
 
     const errorClaimDate = document.getElementById('errorClaimDate');
     const errorClaimValue = document.getElementById('errorClaimValue');
     const errorClaimCause = document.getElementById('errorClaimCause');
     const errorClaimPolicy = document.getElementById('errorClaimPolicy');
+    const errorClaimEmployee = document.getElementById('errorClaimEmployee');
     const errorsSummary = document.getElementById('errorsSummary');
 
-    resetErrors([claimDateInput, claimValueInput, claimCauseInput, claimPolicyInput], [errorClaimDate, errorClaimValue, errorClaimCause, errorClaimPolicy], errorsSummary);
+    resetErrors([claimDateInput, claimValueInput, claimCauseInput, claimPolicyInput, claimEmployeeInput], 
+        [errorClaimDate, errorClaimValue, errorClaimCause, errorClaimPolicy, errorClaimEmployee], errorsSummary);
 
     let valid = true;
 
@@ -80,6 +83,20 @@ function validateForm2() {
         valid = false;
         claimPolicyInput.classList.add("error-input");
         errorClaimPolicy.innerText = "Liczba musi być dodatnia";
+    }
+
+    if (!checkRequired(claimEmployeeInput.value)) {
+        valid = false;
+        claimEmployeeInput.classList.add("error-input");
+        errorClaimEmployee.innerText = "Pole jest wymagane";
+    } else if (!checkNumber(claimEmployeeInput.value)) {
+        valid = false;
+        claimEmployeeInput.classList.add("error-input");
+        errorClaimEmployee.innerText = "Pole powinno być liczbą";
+    } else if (!checkIfNumberPositive(claimEmployeeInput.value)) {
+        valid = false;
+        claimEmployeeInput.classList.add("error-input");
+        errorClaimEmployee.innerText = "Liczba musi być dodatnia";
     }
 
     return valid;
