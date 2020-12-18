@@ -40,7 +40,7 @@
                     <td><a href="/claims/details/<%= c.claimNo %>"><%= c.claimNo %></a></td>
                     <td><%= c.value %></td>
                     <td><%= c.workStartDate.toISOString().split('T')[0] %></td>
-                    <td><%= c.workEndDate.toISOString().split('T')[0] %></td>
+                    <td><%= c.workEndDate ? c.workEndDate.toISOString().split('T')[0] : '' %></td>
                 </tr>
             <% } %>
             </tbody>

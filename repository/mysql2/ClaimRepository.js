@@ -44,7 +44,7 @@ exports.getClaimById = (claimId) => {
                     firstName: row.firstName,
                     lastName: row.lastName,
                     workStartDate: row.workStartDate,
-                    workEndDate: row.workEndDate        //tutaj wchodzi null i nie dziala, co zrobic? //tak samo getEmp By Id //to naprawic
+                    workEndDate: row.workEndDate        
                 };
                 claim.employees.push(employee);
             }
@@ -56,75 +56,6 @@ exports.getClaimById = (claimId) => {
         throw err;
     });
 };
-
-
-
-/*
-exports.getClaimById = (claimId) => {
-
-    const query = `SELECT c.claimNo as claimNo, c.date, c.value, c.cause,
-    cl_emp.workStartDate, cl_emp.workEndDate, 
-    emp.empNo as empNo, emp.firstName, emp.lastName FROM Claim c
-    left join Claim_Employee cl_emp on cl_emp.claimNo = c.claimNo
-    left join Employee emp on emp.empNo = cl_emp.empNo 
-    where c.claimNo = ?;`
-    
-    return db.promise().query(query, [claimId])
-    .then( (results, fields) => {
-        const firstRow = results[0][0];
-        if(!firstRow) {
-            return {};
-        }
-        const claim = {
-            claimNo: parseInt(claimId),
-            date: firstRow.date,
-            value: firstRow.value,
-            cause: firstRow.cause,
-            employees: []
-        }
-        for( let i=0; i<results[0].length; i++ ) {
-            const row = results[0][i];
-
-            console.log(row.workEndDate);
-            var check = row.workEndDate;
-            console.log(check);
-
-            var employee;
-            if(row.claimNo) {
-                if(check) {
-                    //od strony bd dziala
-                    //sprawdzic czy workEndDate jest null
-
-                    employee = {
-                        empNo: row.empNo,
-                        firstName: row.firstName,
-                        lastName: row.lastName,
-                        workStartDate: row.workStartDate,
-                        workEndDate: row.workEndDate                   
-                    }
-                    console.log(employee);
-                } else {
-                    employee = {
-                        empNo: row.empNo,
-                        firstName: row.firstName,
-                        lastName: row.lastName,
-                        workStartDate: row.workStartDate,
-                        workEndDate: null
-                    } 
-                    console.log(employee);   
-                };
-                claim.employees.push(employee);
-            }
-        }
-        return claim;
-    })
-    .catch(err => {
-        console.log(err);
-        throw err;
-    });
-};
-*/
-
 
 exports.createClaim = (newClaimData) => {
     
