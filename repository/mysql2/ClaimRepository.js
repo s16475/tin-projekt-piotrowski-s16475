@@ -44,7 +44,7 @@ exports.getClaimById = (claimId) => {
                     firstName: row.firstName,
                     lastName: row.lastName,
                     workStartDate: row.workStartDate,
-                    workEndDate: row.workEndDate
+                    workEndDate: row.workEndDate        //tutaj wchodzi null i nie dziala, co zrobic? //tak samo getEmp By Id //to naprawic
                 };
                 claim.employees.push(employee);
             }
@@ -66,6 +66,8 @@ exports.createClaim = (newClaimData) => {
     const cause = newClaimData.cause;
     const policy = newClaimData.policy; 
     const emp = newClaimData.emp;
+
+    //const endDate = '0001-01-01';
     
     const sql1 = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
     const sql2 = 'INSERT into Claim_Employee (workStartDate, workEndDate, claimNo, empNo) VALUES (?, ?, ?, ?)'
@@ -80,7 +82,7 @@ exports.createClaim = (newClaimData) => {
                     let data = result[0];
                     count = data[0].c;
                 }).then(() => {
-                    return db.promise().execute(sql2, [date, date, count, emp])
+                    return db.promise().execute(sql2, [date, null, count, emp])  //endDate
         })
     })
 };
