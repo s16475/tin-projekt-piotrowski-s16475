@@ -1,4 +1,5 @@
 const ClaimRepository = require('../repository/mysql2/ClaimRepository');
+const EmployeeRepository = require('../repository/mysql2/EmployeeRepository');
 
 exports.showClaimList = (req, res, next) => {
     ClaimRepository.getClaims()
@@ -33,7 +34,20 @@ exports.showClaimDetails = (req, res, next) => {
 }
 
 exports.showClaimAssign = (req, res, next) => {
-    res.render('pages/claim/assign', { navLocation: 'claim' });
+    let allClaims, allEmps;
+    ClaimRepository.getClaims()
+        .then(claims => {
+            allClaims = claims;
+            return EmployeeRepository.getEmployees();
+        })
+        .then(emps => {
+            allEmps = emps;
+            res.render('pages/claim/assign', {
+                claims: allClaims,
+                emps: allEmps,
+                navLocation: 'claim'
+            });
+        });
 }
 
 exports.showClaimAdd = (req, res, next) => {
