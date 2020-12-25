@@ -50,6 +50,15 @@ exports.showClaimAssign = (req, res, next) => {
         });
 }
 
+exports.assignClaim = (req, res, next) => {
+    const claimId = req.body.select1;
+    const empId = req.body.select2;
+    ClaimRepository.assignClaim(claimId, empId)  
+    .then( () => {
+        res.redirect('/claims');
+    });
+}
+
 exports.showClaimAdd = (req, res, next) => {
     res.render('pages/claim/add', { navLocation: 'claim' });
 }
