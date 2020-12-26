@@ -1,4 +1,5 @@
 const EmployeeRepository = require('../repository/mysql2/EmployeeRepository');
+const ClaimRepository = require('../repository/mysql2/ClaimRepository');
 
 exports.showEmployeeList = (req, res, next) => {
     EmployeeRepository.getEmployees()
@@ -9,11 +10,6 @@ exports.showEmployeeList = (req, res, next) => {
             });
         });
 }
-
-/*
-exports.showEmployeeEdit = (req, res, next) => {
-    res.render('pages/employee/edit', { navLocation: 'emp' });
-}*/
 
 exports.showEmployeeEdit = (req, res, next) => {
     const empId = req.params.empId;
@@ -38,7 +34,30 @@ exports.showEmployeeDetails = (req, res, next) => {
 }
 
 exports.showEmployeeAssign = (req, res, next) => {
-    res.render('pages/employee/assign', { navLocation: 'emp' });
+    let allClaims, allEmps;
+    EmployeeRepository.getEmployees()
+        .then(emps => {
+            allEmps = emps;
+            return ClaimRepository.getClaims();
+        })
+        .then(claims => {
+            allClaims = claims;
+            res.render('pages/employee/assign', {
+                emps: allEmps,
+                claims: allClaims,
+                navLocation: 'emp'
+            });
+        });    
+}
+
+exports.assignEmployee = (req, res, next) => {
+
+    const claimId = req.body.select1;
+    const empId = req.body.select2;
+    EmployeeRepository.assignEmployee(claimId, empId)  
+    .then( result => {
+        res.redirect('/employees');
+    });
 }
 
 exports.deleteEmployee = (req, res, next) => {

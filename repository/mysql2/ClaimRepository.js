@@ -110,6 +110,13 @@ exports.deleteClaim = (claimId) => {
 
 exports.assignClaim = (claimId, empId) => {
 
+    const err_sql = 'SELECT COUNT(*) FROM Claim'
+
+    if(claimId == -1 || empId == -1) {
+        console.log('Nie wybrano żadnej poprawnej opcji')
+        return db.promise().execute(err_sql);
+    }
+
     let nowDate = new Date(),
     month = '' + (nowDate.getMonth() + 1),
     day = '' + nowDate.getDate(),
@@ -139,5 +146,3 @@ exports.assignClaim = (claimId, empId) => {
         })
 };
 
-//zrobic to samo od strony pracownika
-//poprawic buttony w css

@@ -9,6 +9,7 @@ router.get('/details/:empId', employeeController.showEmployeeDetails);
 router.get('/assign', employeeController.showEmployeeAssign);
 router.get('/delete/:empId', employeeController.deleteEmployee);
 router.post('/doedit', employeeController.updateEmployee);
+router.post('/doassign', employeeController.assignEmployee);
 
 module.exports = router;
 

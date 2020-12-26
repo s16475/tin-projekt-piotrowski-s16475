@@ -89,4 +89,42 @@ exports.deleteEmployee = (empId) => {
 
 };
 
+exports.assignEmployee = (claimId, empId) => {
+
+    const err_sql = 'SELECT COUNT(*) FROM Claim'
+
+    if(claimId == -1 || empId == -1) {
+        console.log('Nie wybrano żadnej poprawnej opcji')
+        return db.promise().execute(err_sql);
+    }
+
+    let nowDate = new Date(),
+    month = '' + (nowDate.getMonth() + 1),
+    day = '' + nowDate.getDate(),
+    year = nowDate.getFullYear();
+
+    if (month.length < 2)
+    month = '0' + month;
+    if (day.length < 2)
+    day = '0' + day;
+    const date = [year, month, day].join('-');
+
+    const sql1 = 'INSERT into Claim_Employee (workStartDate, workEndDate, claimNo, empNo) VALUES (?, ?, ?, ?)'
+    const sql2 = 'SELECT COUNT(*) AS c FROM Claim_Employee WHERE claimNo = ? AND empNo = ?'
+
+    var count;
+
+    return db.promise().execute(sql2, [claimId, empId])
+        .then(result => {
+            let data = result[0];
+            count = data[0].c;
+        }).then(() => {            
+            if(count == 0) {
+                return db.promise().execute(sql1, [date, null, claimId, empId]);
+            } else {
+                console.log('Ten pracownik jest już przypisany do tej szkody');
+            }
+        })
+};
+
 
