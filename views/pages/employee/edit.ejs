@@ -2,10 +2,7 @@
 
     <main>
         <h2>Edytuj pracownika</h2>
-        <form class="form" method="post" action="/employees/doedit" novalidate >
-
-
-            <!--<form class="form" method="post" action="/employees/doedit" novalidate onsubmit="return validateForm();">-->
+        <form class="form" method="post" action="/employees/doedit" novalidate onsubmit="return validateForm();">
             
             <input type="hidden" name="empNo" value="<%= emp.empNo %>">
 
@@ -28,12 +25,40 @@
             </span>
             
             <label for="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="lastName" id="lastName" value="<%= emp.lastName %>" />
-            <span id="errorLastName" class="errors-text"></span>
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="text" name="lastName" id="lastName" value="<%= emp.lastName %>" />
+            <span id="errorLastName" class="errors-text">
+
+            <% if (validationErrors != null) { %>                
+            <% if (validationErrors.find(e => e.path.includes('lastName'))) { %>
+                <%= validationErrors.find(e => e.path.includes('lastName')).message %>
+            <% } %>
+            <% } %>
+
+            </span>
             
             <label for="email">E-mail:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="email" id="email" value="<%= emp.email %>" />
-            <span id="errorEmail" class="errors-text"></span>
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="text" name="email" id="email" value="<%= emp.email %>" />
+            <span id="errorEmail" class="errors-text">
+
+            <% if (validationErrors != null) { %>                
+            <% if (validationErrors.find(e => e.path.includes('email'))) { %>
+                <%= validationErrors.find(e => e.path.includes('email')).message %>
+            <% } %>
+            <% } %>
+
+            </span>
             
             <div class="form-buttons">
                 <p id="errorsSummary" class="errors-text"></p>
