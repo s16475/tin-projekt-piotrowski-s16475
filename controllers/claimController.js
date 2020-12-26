@@ -17,7 +17,8 @@ exports.showClaimEdit = (req, res, next) => {
         .then(claim => {
             res.render('pages/claim/edit', {
                 claim: claim,
-                navLocation: 'claim'
+                navLocation: 'claim',
+                validationErrors: null
             });
         });
 }
@@ -72,10 +73,7 @@ exports.createClaim = (req, res, next) => {
         .then( result => {
             res.redirect('/claims');
         })
-        .catch(err => {
-            
-            console.log(err);
-            
+        .catch(err => {            
             res.render('pages/claim/add', { 
                 navLocation: 'claim',
                 validationErrors: err.details
@@ -89,7 +87,7 @@ exports.deleteClaim = (req, res, next) => {
     .then( () => {
         res.redirect('/claims');
     });
-};
+}
 
 exports.updateClaim = (req, res, next) => {
     const claimId = req.body.claimNo;
@@ -97,7 +95,15 @@ exports.updateClaim = (req, res, next) => {
     ClaimRepository.updateClaim(claimId, claimData)
     .then( result => {
         res.redirect('/claims');
+    })
+    .catch(err => {
+        res.render('pages/claim/edit', {
+            claim: claimData,
+            navLocation: 'claim',
+            validationErrors: err.details
+        });
     });
-};
+}
+
 
 

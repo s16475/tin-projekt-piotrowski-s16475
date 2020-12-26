@@ -1,5 +1,6 @@
 const db = require('../../config/mysql2/db');
 const claimAddSchema = require('../../model/joi/ClaimAdd');
+const claimEditSchema = require('../../model/joi/ClaimEdit');
 
 exports.getClaims = () => {
 
@@ -84,14 +85,18 @@ exports.createClaim = (newClaimData) => {
                     let data = result[0];
                     count = data[0].c;
                 }).then(() => {
-                    return db.promise().execute(sql2, [date, null, count, emp])  //endDate
+                    return db.promise().execute(sql2, [date, null, count, emp])  
         })
     })
 };
 
-
-
 exports.updateClaim = (claimId, claimData) => {
+
+    const vRes = claimEditSchema.validate(claimData, { abortEarly: false} );
+    if(vRes.error) {
+        return Promise.reject(vRes.error);
+    }
+
     const date = claimData.date;
     const value = claimData.value;
     const cause = claimData.cause;    
