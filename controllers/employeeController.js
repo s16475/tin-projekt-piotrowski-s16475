@@ -1,5 +1,6 @@
 const EmployeeRepository = require('../repository/mysql2/EmployeeRepository');
 const ClaimRepository = require('../repository/mysql2/ClaimRepository');
+const { empty } = require('../model/joi/Employee');
 
 exports.showEmployeeList = (req, res, next) => {
     EmployeeRepository.getEmployees()
@@ -17,7 +18,8 @@ exports.showEmployeeEdit = (req, res, next) => {
         .then(emp => {
             res.render('pages/employee/edit', {
                 emp: emp,
-                navLocation: 'emp'
+                navLocation: 'emp',
+                validationErrors: null
             });
         });
 }
@@ -66,7 +68,7 @@ exports.deleteEmployee = (req, res, next) => {
     .then( () => {
         res.redirect('/employees');
     });
-};
+}
 
 exports.updateEmployee = (req, res, next) => {
     const empId = req.body.empNo;
@@ -74,5 +76,14 @@ exports.updateEmployee = (req, res, next) => {
     EmployeeRepository.updateEmployee(empId, empData)
     .then( result => {
         res.redirect('/employees');
+    })
+    .catch(err => {
+        res.render('pages/employee/edit', {
+            emp: empData,
+            navLocation: 'emp',
+            validationErrors: err.details
+        });
     });
-};
+}
+
+//uzupelnic pozostale walidacje dla employee, w edit.ejs

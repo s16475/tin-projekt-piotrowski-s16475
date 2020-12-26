@@ -1,4 +1,5 @@
 const db = require('../../config/mysql2/db');
+const empSchema = require('../../model/joi/Employee');
 
 exports.getEmployees = () => {
     
@@ -68,7 +69,12 @@ exports.createEmployee = (newEmpData) => {
 };
 
 exports.updateEmployee = (empId, empData) => {
-
+    
+    const vRes = empSchema.validate(empData, { abortEarly: false} );
+    if(vRes.error) {
+        return Promise.reject(vRes.error);
+    }
+    
     const firstName = empData.firstName;
     const lastName = empData.lastName;
     const email = empData.email;

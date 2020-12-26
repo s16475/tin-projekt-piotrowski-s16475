@@ -2,13 +2,30 @@
 
     <main>
         <h2>Edytuj pracownika</h2>
-        <form class="form" method="post" action="/employees/doedit" novalidate onsubmit="return validateForm();">
+        <form class="form" method="post" action="/employees/doedit" novalidate >
+
+
+            <!--<form class="form" method="post" action="/employees/doedit" novalidate onsubmit="return validateForm();">-->
             
             <input type="hidden" name="empNo" value="<%= emp.empNo %>">
 
             <label for="firstName">Imię:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="firstName" id="firstName" value="<%= emp.firstName %>" />
-            <span id="errorFirstName" class="errors-text"></span>
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="text" name="firstName" id="firstName" value="<%= emp.firstName %>" />
+            <span id="errorFirstName" class="errors-text">
+                
+            <% if (validationErrors != null) { %>                
+            <% if (validationErrors.find(e => e.path.includes('firstName'))) { %>
+                <%= validationErrors.find(e => e.path.includes('firstName')).message %>
+            <% } %>
+            <% } %>
+
+            </span>
             
             <label for="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="text" name="lastName" id="lastName" value="<%= emp.lastName %>" />
