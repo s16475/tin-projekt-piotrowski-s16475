@@ -3,29 +3,29 @@
     <main>
         <h2>Przydziel szkodę do pracownika</h2>
 
-        <form class="from" name="form" id="form" method="post" action="/claims/doassign">
-        <select class="select" name="select1" id="select1">
-
+        <form class="select" name="form" id="form" method="post" action="/claims/doassign">
+        
+            <select name="select1" id="select1">
                 <option name="" value="-1" selected>--wybierz szkodę--</option>
                 <% for (let claim of claims) { %>
                     <option value="<%= claim.claimNo %>" name="claimNo" label="<%= 'Numer: ' + claim.claimNo + ', Wartość: ' + claim.value %>"></option>
                 <% } %>
+            </select>
 
-        </select>
-
-        <select class="select" name="select2" id="select2">
-                
+            <select name="select2" id="select2">
                 <option name="" value="-1" selected>--wybierz pracownika--</option>
                 <% for (let emp of emps) { %>
                     <option value="<%= emp.empNo %>" name="empNo" label="<%= emp.firstName + ' ' + emp.lastName %>"></option>
                 <% } %>
+            </select>
 
-        </select>
+            <div class="form">
+            <div class="form-buttons">
+                <input type="submit" value="Przydziel" class="form-button-submit" />
+                <a href="/claims" class="form-button-cancel">Anuluj</a>    
+            </div>
+            </div>
 
-        <div class="form-buttons">
-            <input type="submit" value="Przydziel" class="form-button-submit" /> <!--buttony poprawic w css-->
-            <a href="/claims" class="form-button-cancel">Anuluj</a>    
-        </div>
         </form>
 
     </main>
