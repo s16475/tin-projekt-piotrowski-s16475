@@ -4,27 +4,98 @@
         <h2>Dodaj szkodę</h2>
 
         <script type="application/javascript" src="/js/validationClaimAdd.js"></script>
+        
         <form class="form" method="post" action="/claims/doadd" novalidate onsubmit="return validateForm2();">
             
             <label for="claimDate">Data:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="date" name="date" id="claimDate" placeholder="data w formacie YYYY-MM-DD"/>
-            <span id="errorClaimDate" class="errors-text"></span>
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('date')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="date" name="date" id="claimDate" placeholder="data w formacie YYYY-MM-DD"/>
+            <span id="errorClaimDate" class="errors-text">
+
+            <% if (validationErrors != null) { %>                
+                <% if (validationErrors.find(e => e.path.includes('date'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('date')).message %>
+            <% } %>
+            <% } %>
+
+            </span>
             
             <label for="claimValue">Wartość:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="value" id="claimValue" placeholder="liczba > 0"/>
-            <span id="errorClaimValue" class="errors-text"></span>
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('value')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="number" name="value" id="claimValue" placeholder="liczba > 0"/>
+            <span id="errorClaimValue" class="errors-text">
+
+            <% if (validationErrors != null) { %>                
+                <% if (validationErrors.find(e => e.path.includes('value'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('value')).message %>
+            <% } %>
+            <% } %>
+
+            </span>
 
             <label for="claimCause">Przyczyna:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="cause" id="claimCause" placeholder="2-60 znaków"/>
-            <span id="errorClaimCause" class="errors-text"></span>
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('cause')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="text" name="cause" id="claimCause" placeholder="2-60 znaków"/>
+            <span id="errorClaimCause" class="errors-text">
+
+            <% if (validationErrors != null) { %>                
+                <% if (validationErrors.find(e => e.path.includes('cause'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('cause')).message %>
+            <% } %>
+            <% } %>
+
+            </span>
 
             <label for="claimPolicy">Polisa:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="policy" id="claimPolicy" placeholder="numer polisy"/>
-            <span id="errorClaimPolicy" class="errors-text"></span> 
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('policy')) ? 'error-input' : '' %>"
+            <% } %>
+            
+            type="number" name="policy" id="claimPolicy" placeholder="numer polisy"/>
+            <span id="errorClaimPolicy" class="errors-text">
+
+            <% if (validationErrors != null) { %>                
+                <% if (validationErrors.find(e => e.path.includes('policy'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('policy')).message %>
+            <% } %>
+            <% } %>
+
+            </span> 
 
             <label for="claimEmployee">Pracownik:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="number" name="emp" id="claimEmployee" placeholder="numer pracownika"/>
-            <span id="errorClaimEmployee" class="errors-text"></span> 
+            <input 
+            
+            <% if (validationErrors != null) { %>      
+                class="<%= validationErrors.find(e => e.path.includes('emp')) ? 'error-input' : '' %>"
+            <% } %>
+
+            type="number" name="emp" id="claimEmployee" placeholder="numer pracownika"/>
+            <span id="errorClaimEmployee" class="errors-text">
+                
+            <% if (validationErrors != null) { %>                
+                <% if (validationErrors.find(e => e.path.includes('emp'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('emp')).message %>
+            <% } %>
+            <% } %>
+
+            </span> 
 
             <div class="form-buttons">
                 <p id="errorsSummary" class="errors-text"></p>

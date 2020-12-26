@@ -1,4 +1,5 @@
 const db = require('../../config/mysql2/db');
+const claimAddSchema = require('../../model/joi/ClaimAdd');
 
 exports.getClaims = () => {
 
@@ -59,13 +60,16 @@ exports.getClaimById = (claimId) => {
 
 exports.createClaim = (newClaimData) => {
     
+    const vRes = claimAddSchema.validate(newClaimData, { abortEarly: false} );
+    if(vRes.error) {
+        return Promise.reject(vRes.error);
+    }
+
     const date = newClaimData.date;
     const value = newClaimData.value;
     const cause = newClaimData.cause;
     const policy = newClaimData.policy; 
     const emp = newClaimData.emp;
-
-    //const endDate = '0001-01-01';
     
     const sql1 = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
     const sql2 = 'INSERT into Claim_Employee (workStartDate, workEndDate, claimNo, empNo) VALUES (?, ?, ?, ?)'

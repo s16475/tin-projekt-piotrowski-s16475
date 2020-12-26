@@ -60,7 +60,10 @@ exports.assignClaim = (req, res, next) => {
 }
 
 exports.showClaimAdd = (req, res, next) => {
-    res.render('pages/claim/add', { navLocation: 'claim' });
+    res.render('pages/claim/add', { 
+        navLocation: 'claim',
+        validationErrors: null
+    });
 }
 
 exports.createClaim = (req, res, next) => {
@@ -68,7 +71,16 @@ exports.createClaim = (req, res, next) => {
     ClaimRepository.createClaim(claimData)
         .then( result => {
             res.redirect('/claims');
-        });
+        })
+        .catch(err => {
+            
+            console.log(err);
+            
+            res.render('pages/claim/add', { 
+                navLocation: 'claim',
+                validationErrors: err.details
+            });
+        })
 }
 
 exports.deleteClaim = (req, res, next) => {
