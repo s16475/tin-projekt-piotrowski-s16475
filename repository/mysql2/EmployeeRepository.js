@@ -57,30 +57,28 @@ exports.getEmployeeById = (empId) => {
     });
 };
 
-exports.createEmployee = (newEmpData) => {
-
-    const firstName = newEmpData.firstName;
-    const lastName = newEmpData.lastName;
-    const email = newEmpData.email;
-    const sql = 'INSERT into Employee (firstName, lastName, email) VALUES (?, ?, ?)'
-    return db.promise().execute(sql, [firstName, lastName, email]);
-    //dodac insert w tabeli posredniczacej
-    //plus jeszcze trzeba gdzies dodac przypisywanie pracownika do szkody
-};
-
 exports.updateEmployee = (empId, empData) => {
-    
+
     const vRes = empSchema.validate(empData, { abortEarly: false} );
     if(vRes.error) {
         return Promise.reject(vRes.error);
     }
-    
-    const firstName = empData.firstName;
-    const lastName = empData.lastName;
-    const email = empData.email;
-    const sql = `UPDATE Employee set firstName = ?, lastName = ?, email = ? where empNo = ?`;
-    return db.promise().execute(sql, [firstName, lastName, email, empId]);
 
+    return checkEmailUnique(empData.email, empId)
+        .then(emailErr => {
+            if(emailErr.details) {
+                return Promise.reject(emailErr);
+            } else { 
+                const sql = `UPDATE Employee set firstName = ?, lastName = ?, email = ? where empNo = ?`;
+                const firstName = empData.firstName;
+                const lastName = empData.lastName;
+                const email = empData.email;
+                return db.promise().execute(sql, [firstName, lastName, email, empId]);
+            }
+        })
+        .catch(err => {
+            return Promise.reject(err);
+        });
 };
 
 exports.deleteEmployee = (empId) => {
@@ -133,4 +131,35 @@ exports.assignEmployee = (claimId, empId) => {
         })
 };
 
+checkEmailUnique = (email, empId) => {
+    let sql, promise;
 
+    sql = `SELECT COUNT(1) as c FROM Employee where empNo != ? and email = ?`;
+    promise = db.promise().query(sql, [empId, email]);
+    
+    return promise.then( (results, fields) => {
+        const count = results[0][0].c;
+        let err = {};
+        if(count > 0) {
+            err = {
+                details: [{
+                    path: ['email'],
+                    message: 'Podany adres email jest już używany'
+                }]
+            };
+        }
+        return err;
+    });
+}
+
+//funkcja nieużywana
+exports.createEmployee = (newEmpData) => {
+
+    const firstName = newEmpData.firstName;
+    const lastName = newEmpData.lastName;
+    const email = newEmpData.email;
+    const sql = 'INSERT into Employee (firstName, lastName, email) VALUES (?, ?, ?)'
+    return db.promise().execute(sql, [firstName, lastName, email]);
+    //dodac insert w tabeli posredniczacej
+    //plus jeszcze trzeba gdzies dodac przypisywanie pracownika do szkody
+};
