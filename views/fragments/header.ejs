@@ -37,9 +37,11 @@
 
 <nav>
     <ul>
+        <% if(loggedUser) { %>
         <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
         <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
         <li><a href="/claims" class="<%= navLocation == 'claim' ? 'active' : ''%>">Szkody</a></li>
         <li><a href="/policies" class="<%= navLocation == 'policy' ? 'active' : ''%>">Polisy</a></li>
+        <% } %>
     </ul>
 </nav>
