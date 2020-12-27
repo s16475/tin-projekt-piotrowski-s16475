@@ -152,14 +152,6 @@ checkEmailUnique = (email, empId) => {
     });
 }
 
-/*
-exports.findEmpByEmail = (email) => {
-
-    const sql = 'SELECT firstName as f, lastName as l, password as p FROM Employee where email = ?';
-    return db.promise().execute(sql, [email]);
-
-}*/
-
 exports.getEmployeeByEmail = (email) => {
 
     const query = `SELECT firstName, lastName, pass FROM Employee where email = ?`;

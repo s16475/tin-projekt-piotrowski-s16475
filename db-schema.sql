@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `tin-s16475`.`Employee`
       `firstName` VARCHAR(50) NOT NULL ,
       `lastName` VARCHAR(50) NOT NULL ,
       `email` VARCHAR(50) NOT NULL ,
-      `pass` VARCHAR(50) NOT NULL ,
+      `pass` VARCHAR(100) NOT NULL ,
       PRIMARY KEY (`empNo`) ,
       UNIQUE INDEX `empNo_UNIQUE` (`empNo` ASC)
     ) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `tin-s16475`.`Claim_Employee`
     ) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
 INSERT IGNORE INTO `tin-s16475`.`Employee` (`empNo`, `firstName`, `lastName`, `email`, `pass`) VALUES
-  (1, 'Jan', 'Kowalski', 'jan.kowalski@axe.com', 'test1') ,
-  (2, 'Stefan', 'Boczek', 'stefan.boczek@axe.com', 'pass1') ,
-  (3, 'Marian', 'Nowak', 'marian.nowak@axe.com', 'secret')
+  (1, 'Jan', 'Kowalski', 'jan.kowalski@axe.com', '$2a$08$pMagzL5e9dAH3dXGUPGdhuqFiKrW1w92CdjxWccBDUeyjF5Blzey6') ,     --test1
+  (2, 'Stefan', 'Boczek', 'stefan.boczek@axe.com', '$2a$08$FrHgKwoLXOFhgCk4d581T.XH8bg.sezjSt0FP4RRvbqOYANiaSeWG') ,   --pass1
+  (3, 'Marian', 'Nowak', 'marian.nowak@axe.com', '$2a$08$FrHgKwoLXOFhgCk4d581T.MKb0pUIR2KIhyNIYCmPx4fMM7VBhcnW')       --secret
 ;
 
 INSERT IGNORE INTO `tin-s16475`.`Policy` (`policyNo`, `startDate`, `endDate`, `sumInsured`, `insurerId`) VALUES
