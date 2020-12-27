@@ -4,8 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// zmienna sesji
+// zmienne sesji
 const session = require('express-session');
+
+// uwierzytelnianie
+const authUtils = require('./util/authUtils');
 
 // zmienne routerow
 var indexRouter = require('./routes/index');
@@ -46,9 +49,9 @@ app.use((req, res, next) => {
 });
 
 // podlaczenie routerow
-app.use('/policies', policyRouter);
-app.use('/claims', claimRouter);
-app.use('/employees', employeeRouter);
+app.use('/policies', authUtils.permitAuthenticatedUser, policyRouter);
+app.use('/claims', authUtils.permitAuthenticatedUser, claimRouter);
+app.use('/employees', authUtils.permitAuthenticatedUser, employeeRouter);
 app.use('/', indexRouter);
 
 app.use('/api/employees', empApiRouter);
