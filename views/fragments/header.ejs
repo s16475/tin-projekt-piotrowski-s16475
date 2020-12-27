@@ -15,6 +15,26 @@
     <h1>AXE TUiR S.A.</h1>
     <img src="/images/logo.png" width="100" height="100" alt="AXE TUiR S.A. Logo">
 </header>
+
+<% if(!loggedUser) { %>
+    <div id="login">
+        <h5>Logowanie</h5>
+        <form method="post" action="/login" novalidate>
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="email">
+
+            <label for="loginPassword">Hasło:</label>
+            <input type="password" id="loginPassword" name="password">
+
+            <input type="submit" value="Zaloguj się">
+            <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+        </form>
+    </div>
+<% } else { %>
+    <span>Jesteś zalogowany jako: <%=loggedUser.firstName + " " + loggedUser.lastName%></span>
+    <a href="/logout">Wyloguj się</a>
+<% } %>
+
 <nav>
     <ul>
         <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>

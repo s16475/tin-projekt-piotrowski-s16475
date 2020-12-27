@@ -35,6 +35,16 @@ app.use(session({
   resave: false
 }));
 
+//funkcja udostepniajaca dane sesji szablonom
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if(!res.locals.loginError) {
+      res.locals.loginError = undefined;
+  }
+  next();
+});
+
 // podlaczenie routerow
 app.use('/policies', policyRouter);
 app.use('/claims', claimRouter);

@@ -152,6 +152,37 @@ checkEmailUnique = (email, empId) => {
     });
 }
 
+/*
+exports.findEmpByEmail = (email) => {
+
+    const sql = 'SELECT firstName as f, lastName as l, password as p FROM Employee where email = ?';
+    return db.promise().execute(sql, [email]);
+
+}*/
+
+exports.getEmployeeByEmail = (email) => {
+
+    const query = `SELECT firstName, lastName, pass FROM Employee where email = ?`;
+    
+    return db.promise().query(query, [email])
+    .then( (results, fields) => {
+        const firstRow = results[0][0];
+        if(!firstRow) {
+            return {};
+        }
+        const emp = {
+            firstName: firstRow.firstName,
+            lastName: firstRow.lastName,
+            pass: firstRow.pass
+        }
+        return emp;
+    })
+    .catch(err => {
+        console.log(err);
+        throw err;
+    });
+};
+
 //funkcja nieużywana
 exports.createEmployee = (newEmpData) => {
 
