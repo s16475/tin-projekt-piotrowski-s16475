@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `tin-s16475`.`Employee`
       `firstName` VARCHAR(50) NOT NULL ,
       `lastName` VARCHAR(50) NOT NULL ,
       `email` VARCHAR(50) NOT NULL ,
+      `password` VARCHAR(50) NOT NULL ,
       PRIMARY KEY (`empNo`) ,
       UNIQUE INDEX `empNo_UNIQUE` (`empNo` ASC)
     ) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
@@ -41,10 +42,10 @@ CREATE TABLE IF NOT EXISTS `tin-s16475`.`Claim_Employee`
       CONSTRAINT `emp_fk` FOREIGN KEY (`empNo`) REFERENCES `tin-s16475`.`Employee` (`empNo`)
     ) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-INSERT IGNORE INTO `tin-s16475`.`Employee` (`empNo`, `firstName`, `lastName`, `email`) VALUES
-  (1, 'Jan', 'Kowalski', 'jan.kowalski@axe.com') ,
-  (2, 'Stefan', 'Boczek', 'stefan.boczek@axe.com') ,
-  (3, 'Marian', 'Nowak', 'marian.nowak@axe.com')
+INSERT IGNORE INTO `tin-s16475`.`Employee` (`empNo`, `firstName`, `lastName`, `email`, `password`) VALUES
+  (1, 'Jan', 'Kowalski', 'jan.kowalski@axe.com', 'test1') ,
+  (2, 'Stefan', 'Boczek', 'stefan.boczek@axe.com', 'pass') ,
+  (3, 'Marian', 'Nowak', 'marian.nowak@axe.com', 'secret')
 ;
 
 INSERT IGNORE INTO `tin-s16475`.`Policy` (`policyNo`, `startDate`, `endDate`, `sumInsured`, `insurerId`) VALUES

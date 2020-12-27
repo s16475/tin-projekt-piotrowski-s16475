@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// zmienna sesji
+const session = require('express-session');
 
 // zmienne routerow
 var indexRouter = require('./routes/index');
@@ -26,6 +28,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// podlaczenie sesji
+app.use(session({
+  secret: 'my_secret_password',
+  resave: false
+}));
 
 // podlaczenie routerow
 app.use('/policies', policyRouter);
