@@ -10,6 +10,9 @@ const session = require('express-session');
 // uwierzytelnianie
 const authUtils = require('./util/authUtils');
 
+//internacjonalizacja
+const i18n = require('i18n');
+
 // zmienne routerow
 var indexRouter = require('./routes/index');
 const employeeRouter = require('./routes/employeeRoute');
@@ -19,6 +22,7 @@ const policyRouter = require('./routes/policyRoute');
 const empApiRouter = require('./routes/api/EmployeeApiRoute');
 const claimApiRouter = require('./routes/api/ClaimApiRoute');
 const policyApiRouter = require('./routes/api/PolicyApiRoute');
+const { pathToFileURL } = require('url');
 
 var app = express();
 
@@ -29,8 +33,19 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser()); //secret?
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+//internacjoanlizacja
+i18n.configure({
+  locales: ['pl', 'en'], 
+  directory: path.join(__dirname, 'locales'), 
+  objectNotation: true, 
+  cookie: 'lang', 
+  defaultLocale: 'pl', //c
+  register: global     //c
+});
 
 // podlaczenie sesji
 app.use(session({
@@ -44,6 +59,15 @@ app.use((req, res, next) => {
   res.locals.loggedUser = loggedUser;
   if(!res.locals.loginError) {
       res.locals.loginError = undefined;
+  }
+  next();
+});
+
+// internacjonalizacja
+app.use((req, res, next) => {
+  if(!res.locals.lang) {
+      const currentLang = req.cookies['lang'];
+      res.locals.lang = currentLang;
   }
   next();
 });
