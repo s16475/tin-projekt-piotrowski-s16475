@@ -8,11 +8,6 @@ exports.login = (req, res, next) => {
     EmployeeRepository.getEmployeeByEmail(email)
         .then(emp => {
 
-            console.log('Debug');
-            console.log(emp.pass);
-            var hash = authUtil.hashPassword(emp.pass);
-            console.log(hash);
-
             if(!emp) {
                 res.render('index', {
                     navLocation: '',
@@ -40,3 +35,5 @@ exports.logout = (req, res, next) => {
     res.redirect('/');
 }
 
+//tutaj poprawic blad logowania gdy wpisuje sie puste wartosci
+//oraz blad gdy wpisze sie nieprawidlowy e-mail
