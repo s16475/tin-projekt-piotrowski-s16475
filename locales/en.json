@@ -5,7 +5,14 @@
 	"nav": {
 		"main-page": "Main page",
 		"employees": "Employees",
-		"claims": "Claims"
+        "claims": "Claims",
+        "login": "Sign in:",
+        "user": "You are logged as:",
+        "email": "Email:",
+        "pass": "Password:",
+        "logout" : "Sign out",
+        "policies" : "Policies",
+        "login2": "Login"
 	},
     "list": {
        "actions": {
@@ -32,7 +39,8 @@
 			"title": "Employees",
 			"addNew": "Add new employee",
 			"noData": "No employees in database",
-			"pageTitle": "Employee list"
+            "pageTitle": "Employee list",
+            "empNumber": "Number"
 		},
 		"employee": {
 			"edit": {
@@ -68,11 +76,12 @@
             },
             "details": {
                 "pageTitle" : "Employee details",
+                "pageTitle2" : "Claims assigned to employee",
                 "form": {
-                    "empNumber":"Employee number",
-                    "firstName" : "First name",
-                    "lastName" : "Last name",
-                    "email" : "Email"
+                    "empNumber":"Number:",
+                    "firstName" : "First name:",
+                    "lastName" : "Last name:",
+                    "email" : "Email:"
                 },
                 "table-list": {
                     "claimNumber" : "Claim number",

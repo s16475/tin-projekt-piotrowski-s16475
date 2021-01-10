@@ -1,37 +1,37 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2>Szczegóły pracownika</h2>
+        <h2><%= __('emp.employee.details.pageTitle') %></h2>
 
         <form class="form">
             
-            <label for="empNumber">Numer:</label>
+            <label for="empNumber"><%= __('emp.employee.details.form.empNumber') %></label>
             <input type="number" name="empNumber" value="<%= emp.empNo %>" id="empNumber" disabled="true">
             <span></span>
             
-            <label for="firstName">Imię:</label>
+            <label for="firstName"><%= __('emp.employee.details.form.firstName') %></label>
             <input type="text" name="firstName" value="<%= emp.firstName %>" id="firstName" disabled="true">
             <span></span>
             
-            <label for="lastName">Nazwisko:</label>
+            <label for="lastName"><%= __('emp.employee.details.form.lastName') %></label>
             <input type="text" name="lastName" value="<%= emp.lastName %>" id="lastName" disabled="true">
             <span></span>
 
-            <label for="email">Email:</label>
+            <label for="email"><%= __('emp.employee.details.form.email') %></label>
             <input type="text" name="email" value="<%= emp.email %>" id="email" disabled="true">
             <span></span>
 
         </form>
 
-        <h2>Szkody przydzielone do pracownika</h2>
+        <h2><%= __('emp.employee.details.pageTitle2') %></h2>
 
         <table class="table-list">
             <thead>
             <tr>
-                <th>Numer szkody</th>
-                <th>Wartość</th>
-                <th>Przydzielona od</th>
-                <th>Przydzielona do</th>
+                <th><%= __('emp.employee.details.table-list.claimNumber') %></th>
+                <th><%= __('emp.employee.details.table-list.value') %></th>
+                <th><%= __('emp.employee.details.table-list.workStartDate') %></th>
+                <th><%= __('emp.employee.details.table-list.workEndDate') %></th>
             </tr>
             </thead>
             <tbody>
@@ -49,8 +49,8 @@
         <p>
             <div class="form">
             <div class="form-buttons">
-                <a href="/employees/edit/<%= emp.empNo %>" class="form-button-assign">Edytuj</a>  
-                <a href="/employees" class="form-button-cancel">Anuluj</a>  
+                <a href="/employees/edit/<%= emp.empNo %>" class="form-button-assign"><%= __('emp.employee.details.form-buttons.form-button-assign') %></a>  
+                <a href="/employees" class="form-button-cancel"><%= __('emp.employee.details.form-buttons.form-button-cancel') %></a>  
             </div></div>
         </p>
 

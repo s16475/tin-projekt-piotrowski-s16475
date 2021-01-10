@@ -33,7 +33,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser()); //secret?
+app.use(cookieParser()); 
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -43,8 +43,8 @@ i18n.configure({
   directory: path.join(__dirname, 'locales'), 
   objectNotation: true, 
   cookie: 'lang', 
-  defaultLocale: 'pl', //c
-  register: global     //c
+  defaultLocale: 'pl', 
+  register: global     
 });
 
 // podlaczenie sesji

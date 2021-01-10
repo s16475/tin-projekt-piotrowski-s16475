@@ -6,11 +6,11 @@
        <table class="table-list">
             <thead>
                 <tr>
-                    <th>Numer</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>E-mail</th>
-                    <th>Akcje</th>
+                    <th><%= __('emp.list.empNumber') %></th>
+                    <th><%= __('emp.fields.firstName') %></th>
+                    <th><%= __('emp.fields.lastName') %></th>
+                    <th><%= __('emp.fields.email') %></th>
+                    <th><%= __('list.actions.title') %></th>
                 </tr>
             </thead>
 
@@ -23,9 +23,9 @@
                         <td><%= emp.email %></td>
                         <td>
                             <ul class="list-actions">
-                                <li><a href="/employees/details/<%=emp.empNo%>" class="list-actions-button-details">Szczegóły</a></li>
-                                <li><a href="/employees/edit/<%=emp.empNo%>" class="list-actions-button-edit">Edytuj</a></li>
-                                <li><a href="/employees/delete/<%=emp.empNo%>" class="list-actions-button-delete">Usuń</a></li>
+                                <li><a href="/employees/details/<%=emp.empNo%>" class="list-actions-button-details"><%= __('list.actions.details') %></a></li>
+                                <li><a href="/employees/edit/<%=emp.empNo%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></li>
+                                <li><a href="/employees/delete/<%=emp.empNo%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
                             </ul>
                         </td>
                     </tr>
@@ -35,7 +35,7 @@
                  
         </table>
 
-        <p><a href="/employees/assign" class="form-button-submit">Przydziel pracownika do szkody</a></p>
+        <p><a href="/employees/assign" class="form-button-submit"><%= __('emp.employee.assign.pageTitle') %></a></p>
 
     </main>
 

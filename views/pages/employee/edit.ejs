@@ -1,12 +1,12 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2>Edytuj pracownika</h2>
+        <h2><%= __('emp.employee.edit.pageTitle') %></h2>
         <form class="form" method="post" action="/employees/doedit" novalidate onsubmit="return validateForm();">
             
             <input type="hidden" name="empNo" value="<%= emp.empNo %>">
 
-            <label for="firstName">Imię:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="firstName"><%= __('emp.employee.edit.form.firstName') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
@@ -24,7 +24,7 @@
 
             </span>
             
-            <label for="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="lastName"><%= __('emp.employee.edit.form.lastName') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
@@ -42,7 +42,7 @@
 
             </span>
             
-            <label for="email">E-mail:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="email"><%= __('emp.employee.edit.form.email') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
@@ -62,8 +62,8 @@
             
             <div class="form-buttons">
                 <p id="errorsSummary" class="errors-text"></p>
-                <input type="submit" class="form-button-submit" value="Zmodyfikuj"/>
-                <a href="/employees" class="form-button-cancel">Anuluj</a>
+                <input type="submit" class="form-button-submit" value="<%= __('emp.employee.edit.form-buttons.form-button-submit') %>"/>
+                <a href="/employees" class="form-button-cancel"><%= __('emp.employee.edit.form-buttons.form-button-cancel') %></a>
             </div>
         </form>
     </main>

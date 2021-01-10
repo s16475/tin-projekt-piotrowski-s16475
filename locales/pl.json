@@ -5,7 +5,14 @@
 	"nav": {
 		"main-page": "Strona główna",
 		"employees": "Pracownicy",
-		"claims": "Szkody"
+        "claims": "Szkody",
+        "login": "Logowanie:",
+        "user": "Jesteś zalogowany jako:",
+        "email": "Email:",
+        "pass": "Hasło:",
+        "logout" : "Wyloguj się",
+        "policies" : "Polisy",
+        "login2": "Zaloguj się"
 	},
     "list": {
        "actions": {
@@ -32,7 +39,8 @@
 			"title": "Pracownicy",
 			"addNew": "Dodaj nowego pracownika",
 			"noData": "Brak pracowników w bazie",
-			"pageTitle": "Lista pracowników"
+            "pageTitle": "Lista pracowników",
+            "empNumber": "Numer"
 		},
 		"employee": {
 			"edit": {
@@ -47,7 +55,7 @@
                     "email" : "Email"
                 },
                 "form-buttons" : {
-                    "form-button-submit" : "Przydziel",
+                    "form-button-submit" : "Edytuj",
                     "form-button-cancel" : "Anuluj"
                 }
             },
@@ -59,7 +67,7 @@
                 },
                 "select" : {
                     "select1": "Wybierz szkodę",
-                    "select2": "WYbierz pracownika"
+                    "select2": "Wybierz pracownika"
                 },
                 "form-buttons" : {
                     "form-button-submit" : "Przydziel",
@@ -68,11 +76,12 @@
             },
             "details": {
                 "pageTitle" : "Szczegóły pracownika",
+                "pageTitle2" : "Szkody przydzielone do pracownika",
                 "form": {
-                    "empNumber":"Numer pracownika",
-                    "firstName" : "Imię",
-                    "lastName" : "Nazwisko",
-                    "email" : "Email"
+                    "empNumber":"Numer:",
+                    "firstName" : "Imię:",
+                    "lastName" : "Nazwisko:",
+                    "email" : "Email:"
                 },
                 "table-list": {
                     "claimNumber" : "Numer szkody",

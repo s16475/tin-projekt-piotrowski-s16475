@@ -1,19 +1,19 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2>Przydziel pracownika do szkody</h2>
+        <h2><%= __('emp.employee.assign.pageTitle') %></h2>
 
         <form class="select" name="form" id="form" method="post" action="/employees/doassign">
         
             <select name="select2" id="select2">
-                <option name="" value="-1" selected>--wybierz pracownika--</option>
+                <option name="" value="-1" selected><%= __('emp.employee.assign.select.select2') %></option>
                 <% for (let emp of emps) { %>
                     <option value="<%= emp.empNo %>" name="empNo" label="<%= emp.firstName + ' ' + emp.lastName %>"></option>
                 <% } %>
             </select>
 
             <select name="select1" id="select1">
-                <option name="" value="-1" selected>--wybierz szkodę--</option>
+                <option name="" value="-1" selected><%= __('emp.employee.assign.select.select1') %></option>
                 <% for (let claim of claims) { %>
                     <option value="<%= claim.claimNo %>" name="claimNo" label="<%= 'Numer: ' + claim.claimNo + ', Wartość: ' + claim.value %>"></option>
                 <% } %>
@@ -21,8 +21,8 @@
 
             <div class="form">
             <div class="form-buttons">
-                <input type="submit" value="Przydziel" class="form-button-submit" />
-                <a href="/claims" class="form-button-cancel">Anuluj</a>    
+                <input type="submit" value="<%= __('emp.employee.assign.form-buttons.form-button-submit') %>" class="form-button-submit" />
+                <a href="/claims" class="form-button-cancel"><%= __('emp.employee.assign.form-buttons.form-button-cancel') %></a>    
             </div>
             </div>
 
