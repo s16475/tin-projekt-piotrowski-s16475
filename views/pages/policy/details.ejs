@@ -1,41 +1,41 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2>Szczegóły polisy</h2>
+        <h2><%= __('policy.policies.details.pageTitle') %></h2>
        
         <form class="form">
 
-            <label for="policyNumber">Numer:</label>
+            <label for="policyNumber"><%= __('policy.policies.details.form.policyNo') %></label>
             <input type="number" name="policyNumber" value="<%= policy.policyNo %>" id="policyNumber" disabled="true">
             <span></span>
 
-            <label for="policyStartDate">Początek ochrony:</label>
+            <label for="policyStartDate"><%= __('policy.policies.details.form.startDate') %></label>
             <input type="date" name="policyStartDate" value="<%= policy.startDate.toISOString().split('T')[0] %>" id="policyStartDate" disabled="true">
             <span></span>                                   
 
-            <label for="policyEndDate">Koniec ochrony:</label>
+            <label for="policyEndDate"><%= __('policy.policies.details.form.endDate') %></label>
             <input type="date" name="policyEndDate" value="<%= policy.endDate.toISOString().split('T')[0] %>" id="policyEndDate" disabled="true">
             <span></span>
 
-            <label for="sumInsured">Suma ubezpieczenia:</label>
+            <label for="sumInsured"><%= __('policy.policies.details.form.sumInsured') %></label>
             <input type="number" name="sumInsured" value="<%= policy.sumInsured %>" id="sumInsured" disabled="true">
             <span></span>
 
-            <label for="insurerNumber">Ubezpieczający:</label>
+            <label for="insurerNumber"><%= __('policy.policies.details.form.insurerId') %></label>
             <input type="number" name="insurerNumber" value="<%= policy.insurerId %>" id="insurerNumber" disabled="true">
             <span></span>
 
         </form>
     
-        <h2>Szkody na wybranej polisie</h2>
+        <h2><%= __('policy.fields.pageTitle2') %></h2>
 
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Numer szkody</th>
-                    <th>Data</th>
-                    <th>Wartość</th>
-                    <th>Przyczyna</th>
+                    <th><%= __('policy.policies.details.table-list.claimNo') %></th>
+                    <th><%= __('policy.policies.details.table-list.date') %></th>
+                    <th><%= __('policy.policies.details.table-list.value') %></th>
+                    <th><%= __('policy.policies.details.table-list.cause') %></th>
                 </tr>
             </thead>
 
@@ -55,7 +55,7 @@
         <p>
             <div class="form">
             <div class="form-buttons">
-                <a href="/policies" class="form-button-cancel">Anuluj</a>   
+                <a href="/policies" class="form-button-cancel"><%= __('policy.policies.details.form-buttons.form-button-cancel') %></a>   
         </div></div></p>
     
     </main>

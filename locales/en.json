@@ -5,30 +5,30 @@
 	"nav": {
 		"main-page": "Main page",
 		"employees": "Employees",
-        "claims": "Claims",
-        "login": "Sign in:",
-        "user": "You are logged as:",
-        "email": "Email:",
-        "pass": "Password:",
-        "logout" : "Sign out",
-        "policies" : "Policies",
-        "login2": "Login"
+		"claims": "Claims",
+		"login": "Sign in:",
+		"user": "You are logged as:",
+		"email": "Email:",
+		"pass": "Password:",
+		"logout": "Sign out",
+		"policies": "Policies",
+		"login2": "Login"
 	},
-    "list": {
-       "actions": {
-          "title": "Actions",
-          "details": "Details",
-          "edit": "Edit",
-          "delete": "Delete"
-       }
-    },
-   "form": {
-      "actions": {
-         "return": "Return",
-         "edit": "Edit",
-         "cancel": "Cancel"
-      }
-   },
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
 	"emp": {
 		"fields": {
 			"firstName": "First name",
@@ -39,8 +39,8 @@
 			"title": "Employees",
 			"addNew": "Add new employee",
 			"noData": "No employees in database",
-            "pageTitle": "Employee list",
-            "empNumber": "Number"
+			"pageTitle": "Employee list",
+			"empNumber": "Number"
 		},
 		"employee": {
 			"edit": {
@@ -48,71 +48,71 @@
 				"confirm": {
 					"header": "Operation confirmed",
 					"text": "Employee sucessfully edited"
-                },
-                "form" : {
-                    "firstName" : "First name",
-                    "lastName" : "Last name",
-                    "email" : "Email"
-                },
-                "form-buttons" : {
-                    "form-button-submit" : "Edit",
-                    "form-button-cancel" : "Cancel"
-                }
-            },
-            "assign": {
-                "pageTitle": "Assign employee to claim",
-                "confirm": {
-                    "header": "Operation confirmed",
-                    "text": "Employee sucessfully assigned"
-                },
-                "select" : {
-                    "select1": "Choose claim",
-                    "select2": "Choose employee"
-                },
-                "form-buttons" : {
-                    "form-button-submit" : "Assign",
-                    "form-button-cancel" : "Cancel"
-                }
-            },
-            "details": {
-                "pageTitle" : "Employee details",
-                "pageTitle2" : "Claims assigned to employee",
-                "form": {
-                    "empNumber":"Number:",
-                    "firstName" : "First name:",
-                    "lastName" : "Last name:",
-                    "email" : "Email:"
-                },
-                "table-list": {
-                    "claimNumber" : "Claim number",
-                    "value" : "Value",
-                    "workStartDate" : "Assigned from",
-                    "workEndDate" : "Assigned to"
-                },
-                "form-buttons": {
-                    "form-button-assign" : "Edit",
-                    "form-button-cancel" : "Cancel"
-                }
-            }
+				},
+				"form": {
+					"firstName": "First name",
+					"lastName": "Last name",
+					"email": "Email"
+				},
+				"form-buttons": {
+					"form-button-submit": "Edit",
+					"form-button-cancel": "Cancel"
+				}
+			},
+			"assign": {
+				"pageTitle": "Assign employee to claim",
+				"confirm": {
+					"header": "Operation confirmed",
+					"text": "Employee sucessfully assigned"
+				},
+				"select": {
+					"select1": "Choose claim",
+					"select2": "Choose employee"
+				},
+				"form-buttons": {
+					"form-button-submit": "Assign",
+					"form-button-cancel": "Cancel"
+				}
+			},
+			"details": {
+				"pageTitle": "Employee details",
+				"pageTitle2": "Claims assigned to employee",
+				"form": {
+					"empNumber": "Number:",
+					"firstName": "First name:",
+					"lastName": "Last name:",
+					"email": "Email:"
+				},
+				"table-list": {
+					"claimNumber": "Claim number",
+					"value": "Value",
+					"workStartDate": "Assigned from",
+					"workEndDate": "Assigned to"
+				},
+				"form-buttons": {
+					"form-button-assign": "Edit",
+					"form-button-cancel": "Cancel"
+				}
+			}
 		}
-    },
-    "claim": {
+	},
+	"claim": {
 		"fields": {
 			"claimNo": "Claim number",
 			"date": "Date",
-            "value": "Value",
-            "cause": "Cause",
-            "actions": "Actions",
-            "list-action-button-details" : "Details"
+			"value": "Value",
+			"cause": "Cause",
+			"actions": "Actions",
+			"list-action-button-details": "Details"
 		},
 		"list": {
 			"title": "Claims",
 			"noData": "No claims in database",
-            "pageTitle": "Claim list",
-            "form-buttons" : {
-                "form-button-submit-assign" : "Assign claim to employee",
-                "form-button-submit-add" : "Add new claim"
-            }           
+			"pageTitle": "Claim list",
+			"form-buttons": {
+				"form-button-submit-assign": "Assign claim to employee",
+				"form-button-submit-add": "Add new claim"
+			}
 		},
 		"claims": {
 			"edit": {
@@ -120,99 +120,100 @@
 				"confirm": {
 					"header": "Operation confirmed",
 					"text": "Claim sucessfully edited"
-                },
-                "form" : {
-                    "claimDate" : "Data //tutaj skonczylem <================", 
-                    "claimValue" : "Wartość",
-                    "claimCause" : "Przyczyna"
-                },
-                "form-buttons" : {
-                    "form-button-submit" : "Przydziel",
-                    "form-button-cancel" : "Anuluj"
-                }
-            },
-            "assign": {
-                "pageTitle": "Przydziel szkodę do pracownika",
-                "confirm": {
-                    "header": "Potwierdzenie operacji",
-                    "text": "Pomyślnie przypisano szkodę"
-                },
-                "select" : {
-                    "select1": "Wybierz szkodę",
-                    "select2": "WYbierz pracownika"
-                },
-                "form-buttons" : {
-                    "form-button-submit" : "Przydziel",
-                    "form-button-cancel" : "Anuluj"
-                }
-            },
-            "details": {
-                "pageTitle" : "Szczegóły szkody",
-                "form": {
-                    "claimNumber":"Numer szkody",
-                    "claimDate" : "Data",
-                    "claimValue" : "Wartość",
-                    "cause" : "Przyczyna"
-                },
-                "table-list": {
-                    "empNumber" : "Numer pracownika",
-                    "firstName" : "Imię",
-                    "lastName" : "Nazwisko",
-                    "workStartDate": "Przydzielony od",
-                    "workEndDate" : "Przydzielona do"
-                },
-                "form-buttons": {
-                    "form-button-assign" : "Edytuj",
-                    "form-button-cancel" : "Anuluj"
-                }
-            },
-            "add" : {
-                "pageTitle" : "Dodaj szkodę",
-                "form": {
-                    "claimDate" : "Data",
-                    "claimValue" : "Wartość",
-                    "cause" : "Przyczyna",
-                    "claimPolicy" : "Polisa",
-                    "claimEmployee" : "Pracownik"
-                },
-                "form-buttons": {
-                    "form-button-assign" : "Edytuj",
-                    "form-button-cancel" : "Anuluj"
-                }
-            }
+				},
+				"form": {
+					"claimDate": "Date",
+					"claimValue": "Value",
+					"claimCause": "Cause"
+				},
+				"form-buttons": {
+					"form-button-submit": "Edit",
+					"form-button-cancel": "Cancel"
+				}
+			},
+			"assign": {
+				"pageTitle": "Assign claim to employee",
+				"confirm": {
+					"header": "Operation confirmed",
+					"text": "Claim sucesfully assigned"
+				},
+				"select": {
+					"select1": "Choose claim",
+					"select2": "Choose employee"
+				},
+				"form-buttons": {
+					"form-button-submit": "Assign",
+					"form-button-cancel": "Cancel"
+				}
+			},
+			"details": {
+				"pageTitle": "Claim details",
+				"form": {
+					"claimNumber": "Number:",
+					"claimDate": "Date:",
+					"claimValue": "Value:",
+					"cause": "Cause:"
+				},
+				"table-list": {
+					"empNumber": "Employee number:",
+					"firstName": "First name",
+					"lastName": "Last name",
+					"workStartDate": "Assigned from",
+					"workEndDate": "Assigned to"
+				},
+				"form-buttons": {
+					"form-button-assign": "Edit",
+					"form-button-cancel": "Cancel"
+				}
+			},
+			"add": {
+				"pageTitle": "Add new claim",
+				"form": {
+					"claimDate": "Date:",
+					"claimValue": "Value:",
+					"cause": "Cause:",
+					"claimPolicy": "Policy:",
+					"claimEmployee": "Employee:"
+				},
+				"form-buttons": {
+					"form-button-assign": "Add",
+					"form-button-cancel": "Cancel"
+				}
+			}
 		}
-    },
-    "policy" : {
-        "fields": {
-			"policyNo": "Numer",
-			"startDate": "Początek ochrony",
-            "endDate": "Koniec ochrony",
-            "sumInsured": "Suma ubezpieczenia",
-            "insurerId": "Ubezpieczający",
-            "actions" : "Akcje",
-            "list-action-button-details" : "Szczegóły",
-            "pageTitle" : "Lista polis"
+	},
+	"policy": {
+		"fields": {
+			"policyNo": "Number",
+			"startDate": "Coverage valid from",
+			"endDate": "Coverage valid to",
+			"sumInsured": "Sum insured",
+			"insurerId": "Insurer",
+			"actions": "Actions",
+			"list-action-button-details": "Details",
+            "pageTitle": "Policy list",
+            "pageTitle2": "Claims assigned to this policy"
 		},
-		"polices": {
-            "details": {
-                "pageTitle" : "Szczegóły polisy",
-                "form": {
-                    "policyNo": "Numer",
-			        "startDate": "Początek ochrony",
-                    "endDate": "Koniec ochrony",
-                    "sumInsured": "Suma ubezpieczenia",
-                    "insurerId": "Ubezpieczający"
-                },
-                "table-list": {
-                    "claimNo" : "Numer szkody",
-                    "date" : "Data",
-                    "value" : "Wartość",
-                    "cause" : "Przyczyna"
-                },
-                "form-buttons": {
-                    "form-button-cancel" : "Anuluj"
-                }
-            }
+		"policies": {
+			"details": {
+				"pageTitle": "Policy details",
+				"form": {
+					"policyNo": "Number:",
+					"startDate": "Coverage valid from:",
+					"endDate": "Coverage valid to:",
+					"sumInsured": "Sum insured:",
+					"insurerId": "Insurer:"
+				},
+				"table-list": {
+					"claimNo": "Claim number",
+					"date": "Date",
+					"value": "Value",
+					"cause": "Cause"
+				},
+				"form-buttons": {
+					"form-button-cancel": "Cancel"
+				}
+			}
 		}
-    }
+	}
 }
