@@ -70,7 +70,7 @@ exports.deleteEmployee = (req, res, next) => {
     const empId = req.params.empId;
     EmployeeRepository.deleteEmployee(empId)
     .then( () => {
-        res.redirect('/employees');
+        res.redirect('/employees/?param=del');
     });
 }
 

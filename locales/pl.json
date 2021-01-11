@@ -233,5 +233,9 @@
 		"fdate": "Data nie może być z przyszłości",
 		"number": "Pole powinno być liczbą",
 		"pnumber": "Liczba musi być dodatnia"	
+	},
+	"confirmations": {
+		"updateEmp" : "Sukces! Zmodyfikowano pracownika",
+		"deleteEmp" : "Sukces! Skasowano pracownika"
 	}
 }

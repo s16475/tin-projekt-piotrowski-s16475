@@ -4,7 +4,13 @@
         
         <% if(empModified == 'true') { %>
             <div>
-                <p class="message" >Sukces! Zmodyfikowano pracownika. </p>
+                <p class="message" ><%= __('confirmations.updateEmp') %> </p>
+            </div>
+        <% } %>
+
+        <% if(empModified == 'del') { %>
+            <div>
+                <p class="message" ><%= __('confirmations.deleteEmp') %> </p>
             </div>
         <% } %>
 
@@ -32,7 +38,8 @@
                             <ul class="list-actions">
                                 <li><a href="/employees/details/<%=emp.empNo%>" class="list-actions-button-details"><%= __('list.actions.details') %></a></li>
                                 <li><a href="/employees/edit/<%=emp.empNo%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></li>
-                                <li><a href="/employees/delete/<%=emp.empNo%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
+                                <li><a href="/employees/delete/<%=emp.empNo%>" onclick="return confirm('To skasuje pracownika. Kontynuować? \n This will delete employee. Continue?');"
+                                    class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
                             </ul>
                         </td>
                     </tr>

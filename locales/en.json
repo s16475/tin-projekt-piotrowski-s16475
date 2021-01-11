@@ -233,5 +233,9 @@
 		"fdate": "Date cannot be from the future",
 		"number": "Field should be a number",
 		"pnumber": "Number must be positive"	
+	},
+	"confirmations": {
+		"updateEmp" : "Success! Employee modified",
+		"deleteEmp" : "Success! Employee deleted"
 	}
 }
