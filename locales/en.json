@@ -1,6 +1,7 @@
 {
 	"main-page": {
-		"content": "Main page"
+		"content": "Main page",
+		"login-err" : "Invalid login or password"
 	},
 	"nav": {
 		"main-page": "Main page",

@@ -153,7 +153,7 @@ checkEmailUnique = (email, empId) => {
 }
 
 exports.getEmployeeByEmail = (email) => {
-
+        
     const query = `SELECT firstName, lastName, pass FROM Employee where email = ?`;
     
     return db.promise().query(query, [email])
@@ -186,3 +186,4 @@ exports.createEmployee = (newEmpData) => {
     //dodac insert w tabeli posredniczacej
     //plus jeszcze trzeba gdzies dodac przypisywanie pracownika do szkody
 };
+

@@ -1,6 +1,7 @@
 {
 	"main-page": {
-		"content": "Strona główna"
+		"content": "Strona główna",
+		"login-err" : "Nieprawidłowy login lub hasło"
 	},
 	"nav": {
 		"main-page": "Strona główna",

@@ -5,6 +5,17 @@ exports.login = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
+    if(!email) {
+        res.render('index', {
+            navLocation: '',
+            loginError: "Nieprawidłowy adres email lub hasło"
+        })
+    };
+
+    str = email.toString().trim();
+    const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
+    
+    if(re.test(str)) {
     EmployeeRepository.getEmployeeByEmail(email)
         .then(emp => {
 
@@ -26,8 +37,13 @@ exports.login = (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-        });
-
+        })
+    } else {
+        res.render('index', {
+            navLocation: '',
+            loginError: "Nieprawidłowy adres email lub hasło"
+        })
+    }
 }
 
 exports.logout = (req, res, next) => {
@@ -35,5 +51,3 @@ exports.logout = (req, res, next) => {
     res.redirect('/');
 }
 
-//tutaj poprawic blad logowania gdy wpisuje sie puste wartosci
-//oraz blad gdy wpisze sie nieprawidlowy e-mail
