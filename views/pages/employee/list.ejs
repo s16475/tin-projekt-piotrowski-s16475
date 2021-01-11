@@ -14,6 +14,12 @@
             </div>
         <% } %>
 
+        <% if(empModified == 'assign') { %>
+            <div>
+                <p class="message" ><%= __('confirmations.assignEmp') %> </p>
+            </div>
+        <% } %>
+
         <h2><%= __('emp.list.pageTitle') %></h2>
         
        <table class="table-list">

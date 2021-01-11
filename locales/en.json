@@ -236,6 +236,11 @@
 	},
 	"confirmations": {
 		"updateEmp" : "Success! Employee modified",
-		"deleteEmp" : "Success! Employee deleted"
+		"deleteEmp" : "Success! Employee deleted",
+		"assignEmp" : "Success! Employee assigned to claim",
+	    "addClaim" : "Success! Claim added",
+		"deleteClaim" : "Success! Claim deleted",
+		"assignClaim" : "Success! Claim assigned to employee",
+		"updateClaim" : "Success! Claim modified"
 	}
 }

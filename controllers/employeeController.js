@@ -62,7 +62,7 @@ exports.assignEmployee = (req, res, next) => {
     const empId = req.body.select2;
     EmployeeRepository.assignEmployee(claimId, empId)  
     .then( result => {
-        res.redirect('/employees');
+        res.redirect('/employees/?param=assign');
     });
 }
 

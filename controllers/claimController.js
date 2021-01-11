@@ -2,11 +2,15 @@ const ClaimRepository = require('../repository/mysql2/ClaimRepository');
 const EmployeeRepository = require('../repository/mysql2/EmployeeRepository');
 
 exports.showClaimList = (req, res, next) => {
+
+    const param = req.query.param;
+
     ClaimRepository.getClaims()
         .then(claims => {
             res.render('pages/claim/list', {
                 claims: claims,
-                navLocation: 'claim'
+                navLocation: 'claim',
+                claimModified: param
             });
         });
 }
@@ -56,7 +60,7 @@ exports.assignClaim = (req, res, next) => {
     const empId = req.body.select2;
     ClaimRepository.assignClaim(claimId, empId)  
     .then( () => {
-        res.redirect('/claims');
+        res.redirect('/claims/?param=assign');
     });
 }
 
@@ -71,7 +75,7 @@ exports.createClaim = (req, res, next) => {
     const claimData = { ...req.body }; 
     ClaimRepository.createClaim(claimData)
         .then( result => {
-            res.redirect('/claims');
+            res.redirect('/claims/?param=add');
         })
         .catch(err => {            
             res.render('pages/claim/add', { 
@@ -85,7 +89,7 @@ exports.deleteClaim = (req, res, next) => {
     const claimId = req.params.claimId;
     ClaimRepository.deleteClaim(claimId)
     .then( () => {
-        res.redirect('/claims');
+        res.redirect('/claims/?param=del');
     });
 }
 
@@ -94,7 +98,7 @@ exports.updateClaim = (req, res, next) => {
     const claimData = { ...req.body };
     ClaimRepository.updateClaim(claimId, claimData)
     .then( result => {
-        res.redirect('/claims');
+        res.redirect('/claims/?param=true');
     })
     .catch(err => {
         res.render('pages/claim/edit', {

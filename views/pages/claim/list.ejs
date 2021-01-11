@@ -1,6 +1,30 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
+        <% if(claimModified == 'true') { %>
+            <div>
+                <p class="message" ><%= __('confirmations.updateClaim') %> </p>
+            </div>
+        <% } %>
+
+        <% if(claimModified == 'del') { %>
+            <div>
+                <p class="message" ><%= __('confirmations.deleteClaim') %> </p>
+            </div>
+        <% } %>
+
+        <% if(claimModified == 'assign') { %>
+            <div>
+                <p class="message" ><%= __('confirmations.assignClaim') %> </p>
+            </div>
+        <% } %>
+
+        <% if(claimModified == 'add') { %>
+            <div>
+                <p class="message" ><%= __('confirmations.addClaim') %> </p>
+            </div>
+        <% } %>
+
         <h2><%= __('claim.list.pageTitle') %></h2>
         <table class="table-list">
             <thead>
@@ -24,7 +48,8 @@
                             <ul class="list-actions">
                                 <li><a href="/claims/details/<%=claim.claimNo%>" class="list-actions-button-details"><%= __('claim.fields.list-action-button-details') %></a></li>
                                 <li><a href="/claims/edit/<%=claim.claimNo%>" class="list-actions-button-edit"><%= __('claim.claims.edit.form-buttons.form-button-submit') %></a></li>
-                                <li><a href="/claims/delete/<%=claim.claimNo%>" class="list-actions-button-delete"><%= __('claim.claims.edit.form-buttons.form-button-delete') %></a></li>
+                                <li><a href="/claims/delete/<%=claim.claimNo%>" onclick="return confirm('To skasuje szkodę. Kontynuować? \n This will delete claim. Continue?');"
+                                    class="list-actions-button-delete"><%= __('claim.claims.edit.form-buttons.form-button-delete') %></a></li>
                             </ul>
                         </td>
                     </tr>

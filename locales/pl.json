@@ -178,7 +178,7 @@
 					"claimEmployee": "Pracownik"
 				},
 				"form-buttons": {
-					"form-button-assign": "Edytuj",
+					"form-button-assign": "Dodaj",
 					"form-button-cancel": "Anuluj"
 				},
 				"placeholder": {
@@ -236,6 +236,11 @@
 	},
 	"confirmations": {
 		"updateEmp" : "Sukces! Zmodyfikowano pracownika",
-		"deleteEmp" : "Sukces! Skasowano pracownika"
+		"deleteEmp" : "Sukces! Skasowano pracownika",
+		"assignEmp" : "Sukces! Przypisano pracownika do szkody",
+		"addClaim" : "Sukces! Dodano nową szkodę",
+		"deleteClaim" : "Sukces! Skasowano szkodę",
+		"assignClaim" : "Sukces! Przypisano szkodę do pracownika",
+		"updateClaim" : "Sukces! Zmodyfikowano szkodę"
 	}
 }
