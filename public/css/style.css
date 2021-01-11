@@ -66,6 +66,17 @@ main h2 {
     margin-bottom: 2rem;
 }
 
+.message {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: #ce0e0e;
+
+}
+
 .table-list {
     border-collapse: collapse;
     color: #2c3e50;

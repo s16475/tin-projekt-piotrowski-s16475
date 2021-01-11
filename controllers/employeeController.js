@@ -3,11 +3,15 @@ const ClaimRepository = require('../repository/mysql2/ClaimRepository');
 const { empty } = require('../model/joi/Employee');
 
 exports.showEmployeeList = (req, res, next) => {
+    
+    const param = req.query.param;
+
     EmployeeRepository.getEmployees()
         .then(emps => {
             res.render('pages/employee/list', {
                 emps: emps,
-                navLocation: 'emp'
+                navLocation: 'emp',
+                empModified: param
             });
         });
 }
@@ -75,7 +79,7 @@ exports.updateEmployee = (req, res, next) => {
     const empData = { ...req.body };
     EmployeeRepository.updateEmployee(empId, empData)
     .then( result => {
-        res.redirect('/employees');
+        res.redirect('/employees/?param=true');
     })
     .catch(err => {
         res.render('pages/employee/edit', {

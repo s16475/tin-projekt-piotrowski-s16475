@@ -1,6 +1,13 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
+        
+        <% if(empModified == 'true') { %>
+            <div>
+                <p class="message" >Sukces! Zmodyfikowano pracownika. </p>
+            </div>
+        <% } %>
+
         <h2><%= __('emp.list.pageTitle') %></h2>
         
        <table class="table-list">
