@@ -122,13 +122,14 @@
 					"text": "Pomyślnie zaktualizowano szkodę"
 				},
 				"form": {
-					"claimDate": "Data",
-					"claimValue": "Wartość",
-					"claimCause": "Przyczyna"
+					"claimDate": "Data:",
+					"claimValue": "Wartość:",
+					"claimCause": "Przyczyna:"
 				},
 				"form-buttons": {
-					"form-button-submit": "Przydziel",
-					"form-button-cancel": "Anuluj"
+					"form-button-submit": "Edytuj",
+					"form-button-cancel": "Anuluj",
+					"form-button-delete": "Usuń"
 				}
 			},
 			"assign": {
@@ -148,6 +149,7 @@
 			},
 			"details": {
 				"pageTitle": "Szczegóły szkody",
+				"pageTitle2": "Pracownicy przydzieleni do szkody",
 				"form": {
 					"claimNumber": "Numer:",
 					"claimDate": "Data:",
@@ -167,7 +169,7 @@
 				}
 			},
 			"add": {
-				"pageTitle": "Dodaj szkodę",
+				"pageTitle": "Dodaj nową szkodę",
 				"form": {
 					"claimDate": "Data",
 					"claimValue": "Wartość",

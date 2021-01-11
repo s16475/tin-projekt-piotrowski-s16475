@@ -98,7 +98,7 @@
 	},
 	"claim": {
 		"fields": {
-			"claimNo": "Claim number",
+			"claimNo": "Number",
 			"date": "Date",
 			"value": "Value",
 			"cause": "Cause",
@@ -122,13 +122,14 @@
 					"text": "Claim sucessfully edited"
 				},
 				"form": {
-					"claimDate": "Date",
-					"claimValue": "Value",
-					"claimCause": "Cause"
+					"claimDate": "Date:",
+					"claimValue": "Value:",
+					"claimCause": "Cause:"
 				},
 				"form-buttons": {
 					"form-button-submit": "Edit",
-					"form-button-cancel": "Cancel"
+					"form-button-cancel": "Cancel",
+					"form-button-delete": "Delete"
 				}
 			},
 			"assign": {
@@ -148,6 +149,7 @@
 			},
 			"details": {
 				"pageTitle": "Claim details",
+				"pageTitle2": "Employees assigned to claim",
 				"form": {
 					"claimNumber": "Number:",
 					"claimDate": "Date:",

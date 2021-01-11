@@ -1,15 +1,15 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2>Lista szkód</h2>
+        <h2><%= __('claim.list.pageTitle') %></h2>
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Numer</th>
-                    <th>Data</th>
-                    <th>Wartość</th>
-                    <th>Przyczyna</th>
-                    <th>Akcje</th>
+                    <th><%= __('claim.fields.claimNo') %></th>
+                    <th><%= __('claim.fields.date') %></th>
+                    <th><%= __('claim.fields.value') %></th>
+                    <th><%= __('claim.fields.cause') %></th>
+                    <th><%= __('claim.fields.actions') %></th>
                 </tr>
             </thead>
 
@@ -22,9 +22,9 @@
                         <td><%= claim.cause %></td>
                         <td>
                             <ul class="list-actions">
-                                <li><a href="/claims/details/<%=claim.claimNo%>" class="list-actions-button-details">Szczegóły</a></li>
-                                <li><a href="/claims/edit/<%=claim.claimNo%>" class="list-actions-button-edit">Edytuj</a></li>
-                                <li><a href="/claims/delete/<%=claim.claimNo%>" class="list-actions-button-delete">Usuń</a></li>
+                                <li><a href="/claims/details/<%=claim.claimNo%>" class="list-actions-button-details"><%= __('claim.fields.list-action-button-details') %></a></li>
+                                <li><a href="/claims/edit/<%=claim.claimNo%>" class="list-actions-button-edit"><%= __('claim.claims.edit.form-buttons.form-button-submit') %></a></li>
+                                <li><a href="/claims/delete/<%=claim.claimNo%>" class="list-actions-button-delete"><%= __('claim.claims.edit.form-buttons.form-button-delete') %></a></li>
                             </ul>
                         </td>
                     </tr>
@@ -32,8 +32,8 @@
             </tbody>          
         </table>
 
-        <p><a href="/claims/assign" class="form-button-submit">Przydziel szkodę do pracownika</a></p>
-        <p><a href="/claims/add" class="form-button-submit">Dodaj nową szkodę</a></p> 
+        <p><a href="/claims/assign" class="form-button-submit"><%= __('claim.claims.assign.pageTitle') %></a></p>
+        <p><a href="/claims/add" class="form-button-submit"><%= __('claim.claims.add.pageTitle') %></a></p> 
 
     </main>
 
