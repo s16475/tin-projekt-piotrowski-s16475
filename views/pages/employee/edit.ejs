@@ -3,6 +3,13 @@
     <main>
         <h2><%= __('emp.employee.edit.pageTitle') %></h2>
         <form class="form" method="post" action="/employees/doedit" novalidate onsubmit="return validateForm();">
+
+            <div style="display: none">
+                <span id="errorMessage-required"><%= __('validation.fieldRequired') %></span>
+                <span id="errorMessage-characters"><%= __('validation.characters') %></span>
+                <span id="errorMessage-email"><%= __('validation.email') %></span>
+                
+            </div>
             
             <input type="hidden" name="empNo" value="<%= emp.empNo %>">
 
@@ -23,7 +30,7 @@
             <% } %>
 
             </span>
-            
+
             <label for="lastName"><%= __('emp.employee.edit.form.lastName') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             

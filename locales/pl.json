@@ -224,5 +224,10 @@
 				}
 			}
 		}
+	},
+	"validation": {
+		"fieldRequired" : "To pole jest wymagane",
+		"characters" : "Pole powinno zawierać od 2 do 60 znaków",
+		"email" : "Pole powinno zawierać prawidłowy adres email"
 	}
 }

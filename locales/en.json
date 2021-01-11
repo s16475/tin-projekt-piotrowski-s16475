@@ -224,5 +224,10 @@
 				}
 			}
 		}
+	},
+	"validation": {
+		"fieldRequired" : "This field is required",
+		"characters" : "Field should have 2 - 60 characters",
+		"email" : "Field accepts only a valid email address"
 	}
 }
