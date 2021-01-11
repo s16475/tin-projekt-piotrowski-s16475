@@ -74,7 +74,7 @@ exports.createClaim = (newClaimData) => {
     
     const sql1 = 'INSERT into Claim (date, value, cause, policy) VALUES (?, ?, ?, ?)'
     const sql2 = 'INSERT into Claim_Employee (workStartDate, workEndDate, claimNo, empNo) VALUES (?, ?, ?, ?)'
-    const sql3 = 'SELECT COUNT(*) AS c FROM Claim' 
+    const sql3 = 'SELECT claimNo AS c FROM Claim ORDER BY claimNo DESC LIMIT 1'
 
     var count;
 
@@ -87,8 +87,8 @@ exports.createClaim = (newClaimData) => {
                 }).then(() => {
                     return db.promise().execute(sql2, [date, null, count, emp])  
         })
-    })
-};
+    })  
+}; 
 
 exports.updateClaim = (claimId, claimData) => {
 
