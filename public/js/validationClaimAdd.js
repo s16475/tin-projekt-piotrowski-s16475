@@ -13,8 +13,16 @@ function validateForm2() {
     const errorClaimEmployee = document.getElementById('errorClaimEmployee');
     const errorsSummary = document.getElementById('errorsSummary');
 
+    const reqMessage = document.getElementById('errorMessage-required').innerText;
+    const charMessage = document.getElementById('errorMessage-characters').innerText;
+    const dateMessage = document.getElementById('errorMessage-date').innerText;
+    const fdateMessage = document.getElementById('errorMessage-fdate').innerText;
+    const numberMessage = document.getElementById('errorMessage-number').innerText;
+    const pnumberMessage = document.getElementById('errorMessage-pnumber').innerText;
+
     resetErrors([claimDateInput, claimValueInput, claimCauseInput, claimPolicyInput, claimEmployeeInput], 
-        [errorClaimDate, errorClaimValue, errorClaimCause, errorClaimPolicy, errorClaimEmployee], errorsSummary);
+        [errorClaimDate, errorClaimValue, errorClaimCause, errorClaimPolicy, errorClaimEmployee], errorsSummary,
+        [reqMessage, charMessage, dateMessage, fdateMessage, numberMessage, pnumberMessage]);
 
     let valid = true;
 
@@ -32,73 +40,73 @@ function validateForm2() {
     if (!checkRequired(claimDateInput.value)) {
     valid = false;
     claimDateInput.classList.add("error-input");
-    errorClaimDate.innerText = "Pole jest wymagane";
+    errorClaimDate.innerText = reqMessage;
     } else if (!checkDate(claimDateInput.value)) {
     valid = false;
     claimDateInput.classList.add("error-input");
-    errorClaimDate.innerText = "Pole powinno zawierać datę w formacie yyyy-MM-dd (np. 2000-01-01)";
+    errorClaimDate.innerText = dateMessage;
     } else if (checkDateIfAfter(claimDateInput.value, nowString)) {
     valid = false;
     claimDateInput.classList.add("error-input");
-    errorClaimDate.innerText = "Data nie może być z przyszłości";
+    errorClaimDate.innerText = fdateMessage;
     }
 
     if (!checkRequired(claimValueInput.value)) {
         valid = false;
         claimValueInput.classList.add("error-input");
-        errorClaimValue.innerText = "Pole jest wymagane";
+        errorClaimValue.innerText = reqMessage;
     } else if (!checkNumber(claimValueInput.value)) {
         valid = false;
         claimValueInput.classList.add("error-input");
-        errorClaimValue.innerText = "Pole powinno być liczbą";
+        errorClaimValue.innerText = numberMessage;
     } else if (!checkIfNumberPositive(claimValueInput.value)) {
         valid = false;
         claimValueInput.classList.add("error-input");
-        errorClaimValue.innerText = "Liczba musi być dodatnia";
+        errorClaimValue.innerText = pnumberMessage;
     }
 
     if (!checkRequired(claimCauseInput.value)) {
         valid = false;
         claimCauseInput.classList.add("error-input");
-        errorClaimCause.innerText = "Pole jest wymagane";
+        errorClaimCause.innerText = reqMessage;
     } else if (!checkTextLengthRange(claimCauseInput.value, 2, 60)) {
         valid = false;
         claimCauseInput.classList.add("error-input");
-        errorClaimCause.innerText = "Pole powinno zawierać od 2 do 60 znaków";
-    }
-    
-    if (!valid) {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        errorClaimCause.innerText = charMessage;
     }
 
     if (!checkRequired(claimPolicyInput.value)) {
         valid = false;
         claimPolicyInput.classList.add("error-input");
-        errorClaimPolicy.innerText = "Pole jest wymagane";
+        errorClaimPolicy.innerText = reqMessage;
     } else if (!checkNumber(claimPolicyInput.value)) {
         valid = false;
         claimPolicyInput.classList.add("error-input");
-        errorClaimPolicy.innerText = "Pole powinno być liczbą";
+        errorClaimPolicy.innerText = numberMessage;
     } else if (!checkIfNumberPositive(claimPolicyInput.value)) {
         valid = false;
         claimPolicyInput.classList.add("error-input");
-        errorClaimPolicy.innerText = "Liczba musi być dodatnia";
+        errorClaimPolicy.innerText = pnumberMessage;
     }
 
     if (!checkRequired(claimEmployeeInput.value)) {
         valid = false;
         claimEmployeeInput.classList.add("error-input");
-        errorClaimEmployee.innerText = "Pole jest wymagane";
+        errorClaimEmployee.innerText = reqMessage;
     } else if (!checkNumber(claimEmployeeInput.value)) {
         valid = false;
         claimEmployeeInput.classList.add("error-input");
-        errorClaimEmployee.innerText = "Pole powinno być liczbą";
+        errorClaimEmployee.innerText = numberMessage;
     } else if (!checkIfNumberPositive(claimEmployeeInput.value)) {
         valid = false;
         claimEmployeeInput.classList.add("error-input");
-        errorClaimEmployee.innerText = "Liczba musi być dodatnia";
+        errorClaimEmployee.innerText = pnumberMessage;
+    }
+
+    
+    if (!valid) {
+        errorsSummary.innerText = "Formularz zawiera błędy";
     }
 
     return valid;
-
 }

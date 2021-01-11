@@ -6,6 +6,15 @@
         <script type="application/javascript" src="/js/validationClaimAdd.js"></script>
         
         <form class="form" method="post" action="/claims/doadd" novalidate onsubmit="return validateForm2();">
+
+            <div style="display: none">
+                <span id="errorMessage-required"><%= __('validation.fieldRequired') %></span>
+                <span id="errorMessage-characters"><%= __('validation.characters') %></span>
+                <span id="errorMessage-date"><%= __('validation.date') %></span>
+                <span id="errorMessage-fdate"><%= __('validation.fdate') %></span>
+                <span id="errorMessage-number"><%= __('validation.number') %></span>
+                <span id="errorMessage-pnumber"><%= __('validation.pnumber') %></span>
+            </div>
             
             <label for="claimDate"><%= __('claim.claims.add.form.claimDate') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
