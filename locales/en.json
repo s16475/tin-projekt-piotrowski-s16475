@@ -228,6 +228,10 @@
 	"validation": {
 		"fieldRequired" : "This field is required",
 		"characters" : "Field should have 2 - 60 characters",
-		"email" : "Field accepts only a valid email address"
+		"email" : "Field accepts only a valid email address",
+		"date" : "Field accepts date in format yyyy-MM-dd (ie. 2000-01-01)",
+		"fdate": "Date cannot be from the future",
+		"number": "Field should be a number",
+		"pnumber": "Number must be positive"	
 	}
 }

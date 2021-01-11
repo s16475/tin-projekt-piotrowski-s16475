@@ -228,6 +228,10 @@
 	"validation": {
 		"fieldRequired" : "To pole jest wymagane",
 		"characters" : "Pole powinno zawierać od 2 do 60 znaków",
-		"email" : "Pole powinno zawierać prawidłowy adres email"
+		"email" : "Pole powinno zawierać prawidłowy adres email",
+		"date": "Pole powinno zawierać datę w formacie yyyy-MM-dd (np. 2000-01-01)",
+		"fdate": "Data nie może być z przyszłości",
+		"number": "Pole powinno być liczbą",
+		"pnumber": "Liczba musi być dodatnia"	
 	}
 }

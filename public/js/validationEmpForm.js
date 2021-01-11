@@ -52,7 +52,7 @@ function validateForm() {
     }
   
     if (!valid) {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        errorsSummary.innerText = "Formularz zawiera błędy / Form contains errors";
     }
 
     return valid;

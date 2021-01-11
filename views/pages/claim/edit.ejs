@@ -7,6 +7,15 @@
         <script type="application/javascript" src="/js/validationClaimForm.js"></script>
                 
         <form class="form" method="post" action="/claims/doedit" novalidate onsubmit="return validateForm();">
+
+            <div style="display: none">
+                <span id="errorMessage-required"><%= __('validation.fieldRequired') %></span>
+                <span id="errorMessage-characters"><%= __('validation.characters') %></span>
+                <span id="errorMessage-date"><%= __('validation.date') %></span>
+                <span id="errorMessage-fdate"><%= __('validation.fdate') %></span>
+                <span id="errorMessage-number"><%= __('validation.number') %></span>
+                <span id="errorMessage-pnumber"><%= __('validation.pnumber') %></span>
+            </div>
             
             <input type="hidden" name="claimNo" value="<%= claim.claimNo %>">
             
