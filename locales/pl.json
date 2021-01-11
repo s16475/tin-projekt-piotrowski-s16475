@@ -180,6 +180,13 @@
 				"form-buttons": {
 					"form-button-assign": "Edytuj",
 					"form-button-cancel": "Anuluj"
+				},
+				"placeholder": {
+					"date": "data w formacie YYYY-MM-DD",
+					"value": "liczba > 0",
+					"cause": "2-60 znaków",
+					"policy": "numer polisy",
+					"emp": "numer pracownika"
 				}
 			}
 		}

@@ -1,20 +1,20 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2>Dodaj szkodę</h2>
+        <h2><%= __('claim.claims.add.pageTitle') %></h2>
 
         <script type="application/javascript" src="/js/validationClaimAdd.js"></script>
         
         <form class="form" method="post" action="/claims/doadd" novalidate onsubmit="return validateForm2();">
             
-            <label for="claimDate">Data:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="claimDate"><%= __('claim.claims.add.form.claimDate') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
                 class="<%= validationErrors.find(e => e.path.includes('date')) ? 'error-input' : '' %>"
             <% } %>
             
-            type="date" name="date" id="claimDate" placeholder="data w formacie YYYY-MM-DD"/>
+            type="date" name="date" id="claimDate" placeholder="<%= __('claim.claims.add.placeholder.date') %>"/>
             <span id="errorClaimDate" class="errors-text">
 
             <% if (validationErrors != null) { %>                
@@ -25,14 +25,14 @@
 
             </span>
             
-            <label for="claimValue">Wartość:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="claimValue"><%= __('claim.claims.add.form.claimValue') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
                 class="<%= validationErrors.find(e => e.path.includes('value')) ? 'error-input' : '' %>"
             <% } %>
             
-            type="number" name="value" id="claimValue" placeholder="liczba > 0"/>
+            type="number" name="value" id="claimValue" placeholder="<%= __('claim.claims.add.placeholder.value') %>"/>
             <span id="errorClaimValue" class="errors-text">
 
             <% if (validationErrors != null) { %>                
@@ -43,14 +43,14 @@
 
             </span>
 
-            <label for="claimCause">Przyczyna:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="claimCause"><%= __('claim.claims.add.form.cause') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
                 class="<%= validationErrors.find(e => e.path.includes('cause')) ? 'error-input' : '' %>"
             <% } %>
             
-            type="text" name="cause" id="claimCause" placeholder="2-60 znaków"/>
+            type="text" name="cause" id="claimCause" placeholder="<%= __('claim.claims.add.placeholder.cause') %>"/>
             <span id="errorClaimCause" class="errors-text">
 
             <% if (validationErrors != null) { %>                
@@ -61,14 +61,14 @@
 
             </span>
 
-            <label for="claimPolicy">Polisa:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="claimPolicy"><%= __('claim.claims.add.form.claimPolicy') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
                 class="<%= validationErrors.find(e => e.path.includes('policy')) ? 'error-input' : '' %>"
             <% } %>
             
-            type="number" name="policy" id="claimPolicy" placeholder="numer polisy"/>
+            type="number" name="policy" id="claimPolicy" placeholder="<%= __('claim.claims.add.placeholder.policy') %>"/>
             <span id="errorClaimPolicy" class="errors-text">
 
             <% if (validationErrors != null) { %>                
@@ -79,14 +79,14 @@
 
             </span> 
 
-            <label for="claimEmployee">Pracownik:<abbr title="required" aria-label="required">*</abbr></label>
+            <label for="claimEmployee"><%= __('claim.claims.add.form.claimEmployee') %><abbr title="required" aria-label="required">*</abbr></label>
             <input 
             
             <% if (validationErrors != null) { %>      
                 class="<%= validationErrors.find(e => e.path.includes('emp')) ? 'error-input' : '' %>"
             <% } %>
 
-            type="number" name="emp" id="claimEmployee" placeholder="numer pracownika"/>
+            type="number" name="emp" id="claimEmployee" placeholder="<%= __('claim.claims.add.placeholder.emp') %>"/>
             <span id="errorClaimEmployee" class="errors-text">
                 
             <% if (validationErrors != null) { %>                
@@ -99,8 +99,8 @@
 
             <div class="form-buttons">
                 <p id="errorsSummary" class="errors-text"></p>
-                <input type="submit" class="form-button-submit" value="Dodaj" />
-                <a href="/claims" class="form-button-cancel">Anuluj</a>
+                <input type="submit" class="form-button-submit" value="<%= __('claim.claims.add.form-buttons.form-button-assign') %>" />
+                <a href="/claims" class="form-button-cancel"><%= __('claim.claims.add.form-buttons.form-button-cancel') %></a>
             </div>
         </form>
         

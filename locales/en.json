@@ -180,6 +180,13 @@
 				"form-buttons": {
 					"form-button-assign": "Add",
 					"form-button-cancel": "Cancel"
+				},
+				"placeholder": {
+					"date": "date in YYYY-MM-DD format",
+					"value": "number > 0",
+					"cause": "2-60 characters",
+					"policy": "policy number",
+					"emp": "employee number"
 				}
 			}
 		}

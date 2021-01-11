@@ -5,19 +5,19 @@
        
         <form class="form">
 
-            <label for="claimNumber">Number:</label>
+            <label for="claimNumber"><%= __('claim.claims.details.form.claimNumber') %></label>
             <input type="number" name="claimNumber" value="<%= claim.claimNo %>" id="claimNumber" disabled="true">
             <span></span>
             
-            <label for="claimDate">Data:</label>
+            <label for="claimDate"><%= __('claim.claims.details.form.claimDate') %></label>
             <input type="date" name="claimDate" value="<%= claim.date.toISOString().split('T')[0] %>" id="claimDate" disabled="true">
             <span></span>
 
-            <label for="claimValue">Wartość:</label>
+            <label for="claimValue"><%= __('claim.claims.details.form.claimValue') %></label>
             <input type="number" name="claimValue" value="<%= claim.value %>" id="claimValue" disabled="true">
             <span></span>
 
-            <label for="claimCause">Przyczyna:</label>
+            <label for="claimCause"><%= __('claim.claims.details.form.cause') %></label>
             <input type="text" name="claimCause" value="<%= claim.cause %>" id="claimCause" disabled="true">
             <span></span>
             
@@ -28,11 +28,11 @@
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Numer pracownika</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Przydzielony od</th>
-                    <th>Przydzielony do</th>
+                    <th><%= __('claim.claims.details.table-list.empNumber') %></th>
+                    <th><%= __('claim.claims.details.table-list.firstName') %></th>
+                    <th><%= __('claim.claims.details.table-list.lastName') %></th>
+                    <th><%= __('claim.claims.details.table-list.workStartDate') %></th>
+                    <th><%= __('claim.claims.details.table-list.workEndDate') %></th>
                 </tr>
             </thead>
 
@@ -54,8 +54,8 @@
         <p>
             <div class="form">
             <div class="form-buttons">
-                <a href="/claims/edit/<%= claim.claimNo %>" class="form-button-assign">Edytuj</a>  
-                <a href="/claims" class="form-button-cancel">Anuluj</a>   
+                <a href="/claims/edit/<%= claim.claimNo %>" class="form-button-assign"><%= __('claim.claims.details.form-buttons.form-button-assign') %></a>  
+                <a href="/claims" class="form-button-cancel"><%= __('claim.claims.details.form-buttons.form-button-cancel') %></a>   
         </div></div></p>
         
     </main>
